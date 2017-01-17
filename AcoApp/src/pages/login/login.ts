@@ -18,7 +18,7 @@ import { ProfilPage } from '../profil/profil'
 export class LoginPage {
 
   profilPage;
-  
+
   constructor(public navCtrl: NavController) {
 
     this.profilPage = ProfilPage;
@@ -27,6 +27,7 @@ export class LoginPage {
   //ionViewDidLoad() {
   //  console.log('Hello LoginPage Page');
   //}
+  //
 
   login(){
     this.navCtrl.push(Routes.getPage(Routes.PROFIL));
