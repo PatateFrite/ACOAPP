@@ -1,0 +1,50 @@
+page-login {
+  .button-inner{
+    text-transform: uppercase;
+  }
+
+.content-md{
+  color: #ff9f3f;
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  text-align: center;
+
+}
+
+[padding],
+[padding] .scroll-content {
+  width: 100%;
+  margin:auto;
+  text-align:center;
+}
+
+.button-outline-md{
+  border-radius: 20px;
+}
+
+#image_login{
+  margin:auto;
+  height: 500px;
+  width: 600px;
+  margin-top: 180px;
+}
+
+#image_login p{
+  font-size: 6rem;
+  font-family: $montserrat;
+  color: $couleurorange;
+  width: 50%;
+  text-transform: uppercase;
+  text-align: center;
+  margin:auto;
+}
+
+#login_side{
+  margin:auto;
+  height: 200px;
+  width: 400px;
+
+}
+
+}

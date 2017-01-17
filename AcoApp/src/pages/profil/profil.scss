@@ -1,0 +1,93 @@
+page-profil {
+    ion-header{
+        .list-md{
+          margin-bottom:0;
+        }
+        #logoutCss{
+          color:$couleurorange;
+          font-size:1.6rem;
+          border-bottom: 2px solid $couleurorange;
+          margin-left: 670px;
+          padding-top: 20px;
+          text-transform: uppercase;
+          background-color: #fff;
+        }
+    }
+      .item-avatar{
+        width:160px;
+        height :160px;
+        margin:auto;
+        margin-bottom:10px;
+      }
+
+      .userDefault{
+          background-image: url(img/userPic.jpg);
+          height: 160px;
+          background-size: cover;
+          background-position: center center;
+          border-radius: 100%;
+          border: solid 6px orange;
+          margin: auto;
+      }
+}
+
+
+[padding],
+[padding] .scroll-content {
+  padding:0px;
+}
+
+.segment-md .segment-button{
+  border-bottom-width: 8px;
+  color: #ff9f3f;
+  font-size: 1.6rem;
+}
+
+.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+  border-color: #ff9f3f;
+}
+
+.button-outline-md{
+  border-radius: 20px;
+}
+ion-content{
+
+  .centrerContent{
+  margin:auto;
+  width: 680px;
+}
+
+  .cssBouttonForm{
+    height: 100px;
+    margin-left:260px;
+    margin-top: 30px;
+  }
+
+  //section reports camera
+
+  .item-md{
+    color:$couleurgrisF;
+  }
+}
+
+.icon.icon-md.ion-ios-camera-outline{
+  font-size:50px;
+  color:$couleurorange;
+}
+
+.button-md{
+  background-color: #fff;
+  height: 4.3rem;
+  font-size: 2rem;
+  border-radius: 20px;
+}
+
+.centerButton .toolbar-content.toolbar-content-md{
+  margin-left:350px;
+}
+
+
+//archives section
+.archivesSection{
+  padding: 30px;
+}

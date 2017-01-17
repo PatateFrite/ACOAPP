@@ -1,0 +1,202 @@
+page-form {
+
+  ion-navbar{
+    .button-inner{
+    }
+    .button {
+      left:80%;
+    }
+  }
+  ion-title{
+   .title.title-md{
+     color:red;
+   }
+  }
+
+  .segment-md .segment-button {
+    height: auto!important;
+    border: none;
+  }
+
+  .item-md.item-block .item-inner{
+    border-bottom:none;
+  }
+
+.item-block.item.item-md.item-checkbox{
+  padding-left: 120px;
+}
+
+.checkbox-ios .checkbox-checked .checkbox-inner{
+  position: absolute;
+  top: 18%;
+  left: 40%;
+  width: 6px;
+  height: 15px;
+  border-width: 2px;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-style: solid;
+
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox-ios .checkbox-icon{
+  background-color: #fff;
+  border-color:$couleurorange;
+}
+
+.segment-md .segment-button{
+  padding:0px;
+}
+
+
+
+.bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default {
+  color: $couleurorange;
+}
+
+/*.TimeProcessColor.toolbar.toolbar-md{
+  color:#fff;
+  background-color: #6ebaf4;
+}*/
+
+
+//ion-segment .border{
+//  border-bottom: 5px solid #000;
+//  width: 50%;
+//  z-index:-0;
+//}
+
+ion-list.flightTimeData.list.list-md{
+  height: 280px;
+  width: 30%;
+  margin:auto;
+  border: 1px solid $couleurorange;
+  padding: 5px;
+  color:#6b6865;
+  margin-top: 60px;
+}
+
+.list-md{
+  margin: 0px;
+}
+
+.flightData.list.list-md{
+  padding: 10px 0px;
+  margin:40px;
+  width: 900px;
+  margin-top: 60px;
+  // border-bottom: 1px solid $couleurgris;
+  // border-top: 1px solid $couleurgris;
+}
+.toolbar-title-md{
+  color: $couleurorange;
+}
+.saveBoutton{
+  margin:auto;
+  height:200px;
+  width: 200px;
+  padding: 10px 10px;
+  margin-top: 60px;
+}
+
+.titresSections{
+  color: $couleurorange;
+  font-size: 1.8rem;
+  border: 1px solid $couleurorange;
+  padding:8px;
+}
+
+#barTime{
+  height: 60px;
+  background-color:$couleurbleu;
+}
+
+//ne marche pas!
+.titreTime .toolbar-title-md{
+  color:#fff;
+  padding: 15px;
+  text-align:center;
+}
+
+// .page-form .toolbar-title-md{
+//   color:#fff;
+// }
+
+.no-scroll .scroll-content{
+     overflow: hidden;
+     padding: 30px;
+}
+.titleProcessTime{
+  color:$couleurorange;
+  font-size:1.5rem;
+}
+
+.dataCrew.dataBoarding.dataDoor.dataBus.dataLoading.dataReactionary{ //marche pas
+  padding-bottom: 50px;
+}
+
+.lfcComplet, .lmcComplet, .irComplet{
+  margin: 40px;
+}
+
+.label.label-md.label-md-primary{
+  color:$couleurgris;
+}
+.cases .text-input.ng-untouched.ng-pristine.ng-valid.text-input-md{
+  border:1px solid $couleurgris;
+  width:60px;
+  height:20px;
+}
+
+// .cpt .item-block.item.item-md.item-input.ng-untouched.ng-pristine.ng-valid.item-multiple-inputs{
+//   float:left;
+// }
+
+.cpt1, .cpt3, .cpt4, .cpt5{
+  float:left;
+}
+
+.clear{
+  clear:both;
+}
+.assCss{
+  display:inline-block;
+  width:400px;
+}
+
+.irComplet{
+  width:800px;
+
+
+}
+.block1{
+  width:130px;
+  float:left;
+  border: 1px solid $couleurbleu;
+  height: 100px;
+  margin-right:10px;
+}
+
+.block2{
+  width:400px;
+  float:left;
+  border: 1px solid $couleurgrisF;
+}
+.irs1, .irs2, .irs3{
+  float:left;
+  width: 220px;
+}
+.textRemarks .text-input.ng-untouched.ng-pristine.ng-valid.text-input-md{
+  border-bottom:1px solid $couleurgris;
+}
+.sectionComments{
+  margin-top: 80px;
+  margin:auto;
+}
+
+
+}

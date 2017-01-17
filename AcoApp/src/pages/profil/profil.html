@@ -1,0 +1,121 @@
+<!--
+  Generated template for the Profil page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <!--<ion-navbar></ion-navbar>-->
+<ion-list>
+  <button id="logoutCss" (click)="logout()">Logout</button>
+  <ion-item class="item_profile">
+    <ion-avatar *ngIf='base64Image' class="item-avatar">
+      <div (click)='takePicture()' class="userDefault" [style.background-image]="'url('+ base64Image +')'"></div>
+    </ion-avatar>
+    <ion-avatar *ngIf='!base64Image' class="item-avatar">
+      <div (click)='takePicture()' class="userDefault" [style.background-image]="'url(img/userPic.jpg)'"></div>
+    </ion-avatar>
+  </ion-item>
+</ion-list>
+
+  <div padding>
+    <ion-segment [(ngModel)]="sections">
+      <ion-segment-button value="Today">
+        Today
+      </ion-segment-button>
+      <ion-segment-button value="Archives">
+        Archives
+      </ion-segment-button>
+      <ion-segment-button value="Reports">
+        Reports
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-header>
+
+
+<ion-content padding>
+  <div [ngSwitch]="sections">
+  <div *ngSwitchCase="'Today'" class="centrerContent">
+    <div class="cssBouttonForm">
+      <button class="319Button" ion-button outline (click)="form('A319')">A319</button>
+      <button ion-button outline (click)="form('A320')">A320</button>
+    </div>
+
+    <ion-list (click)='monClick($event)'>
+
+
+        <ion-item-sliding *ngFor="let fourre of fourres" (click)="openFourre(fourre)">
+          <ion-item>
+              {{ fourre.id }} - {{ type }} - {{ fourre.flight }} - {{ fourre.destination }} - {{ fourre.std }}
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="danger" (click)="delete($event,fourre.id)">
+              <ion-icon name="close" item-right></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+
+
+    </ion-list>
+  </div>
+
+  <div class="archivesSection" *ngSwitchCase="'Archives'">
+    <p class="titleArchives">November<p>
+    <ion-card id="file1">
+      <ion-card-content>
+        <ion-icon name="ios-folder-outline" ></ion-icon>
+        Nov 18, 2016
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="file2">
+      <ion-card-content>
+        <ion-icon name="ios-folder-outline" ></ion-icon>
+        Nov 12, 2016
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="file3">
+      <ion-card-content>
+        <ion-icon name="ios-folder-outline" ></ion-icon>
+        Nov 9, 2016
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card id="file4">
+      <ion-card-content>
+        <ion-icon name="ios-folder-outline" ></ion-icon>
+        Nov 4, 2016
+      </ion-card-content>
+    </ion-card>
+
+
+  </div>
+
+  <div *ngSwitchCase="'Reports'">
+    <ion-grid>
+      <ion-row wrap>
+        <ion-col width-33 *ngFor="let reportImg of reportImages">
+          <ion-card>
+            <img [src]="reportImg" />
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-footer>
+      <ion-toolbar class="centerButton">
+        <button ion-button (click)="takeReportPicture()">
+            <ion-icon name="ios-camera-outline" is-active="false"></ion-icon>
+        </button>
+      </ion-toolbar>
+    </ion-footer>
+  </div>
+
+  </div>
+
+
+
+</ion-content>

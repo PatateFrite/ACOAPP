@@ -1,0 +1,451 @@
+<ion-menu [content]="content" side="right">
+  <ion-header id="barTime">
+      <ion-title class="titreTime">Time process <ion-icon name="md-time"></ion-icon> </ion-title>
+  </ion-header>
+  <ion-content padding class="no-scroll">
+
+    <div class="dataCrew">
+      <p class="titleProcessTime">Crew:</p>
+      <p>Crew change (on Position) <ion-icon id="crewChange" name="md-radio-button-on" (click)="getHeure($event)" > {{CurrentTimeData.crewChange}} </ion-icon></p>
+      <p>Ready <ion-icon id="ready" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.ready}} </ion-icon></p>
+      <p>Deboarding End <ion-icon id="deboard" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.deboard}}</ion-icon></p>
+      <p>Last Passenger on Board <ion-icon id="lastPassenger" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.lastPassenger}}</ion-icon></p>
+    </div>
+
+    <div class="dataBoarding">
+      <p class="titleProcessTime">Boarding Time:</p>
+      <p>Pré-Boarding <ion-icon id="preboard" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.preboard}}</ion-icon></p>
+      <p>Boarding <ion-icon id="board" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.board}}</ion-icon></p>
+      <p>End Boarding <ion-icon id="boardEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.boardEnd}}</ion-icon></p>
+    </div>
+
+    <div class="dataDoor">
+      <p class="titleProcessTime">Doors:</p>
+      <p>Aircraft Closed <ion-icon id="aircraftClose" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.aircraftClose}}</ion-icon></p>
+      <p>Holds Closed <ion-icon id="holdClose" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.holdClose}}</ion-icon></p>
+    </div>
+
+    <div class="dataBus">
+      <p class="titleProcessTime">Bus:</p>
+      <p>1st Bus <ion-icon id="bus1" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.bus1}}</ion-icon></p>
+      <p>2nd Bus <ion-icon id="bus2" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.bus2}}</ion-icon></p>
+      <p>3rd Bus <ion-icon id="bus3" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.bus3}}</ion-icon></p>
+    </div>
+
+    <div class="dataLoading">
+      <p class="titleProcessTime">Loading: </p>
+      <p>Start <ion-icon id="loadStart" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.loadStart}}</ion-icon></p>
+      <p>End <ion-icon id="loadEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.loadEnd}}</ion-icon></p>
+    </div>
+
+    <div class="dataReactionary">
+      <p class="titleProcessTime">Reactionary:</p>
+      <p>Fueling End <ion-icon id="fuelingEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.fuelingEnd}}</ion-icon></p>
+      <p>Technical Repair End <ion-icon id="technicEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.technicEnd}}</ion-icon></p>
+      <p>Bag searching <ion-icon id="bagSearch" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.bagSearch}}</ion-icon></p>
+      <p>Bag searching End <ion-icon id="bagSearchEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.bagSearchEnd}}</ion-icon></p>
+      <p>De-Ice Start <ion-icon id="deiceStart" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.deiceStart}}</ion-icon></p>
+      <p>De-Ice End <ion-icon id="deiceEnd"name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.deiceEnd}}</ion-icon></p>
+    </div>
+
+  </ion-content>
+</ion-menu>
+
+
+
+<!--
+  Generated template for the Form page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar >
+
+    <button ion-button menuToggle right>
+      <ion-icon name="md-stopwatch" id="timeWatch"></ion-icon>
+    </button>
+
+
+  <ion-navbar >
+    <ion-title>{{ type }}</ion-title>
+  </ion-navbar>
+
+</ion-toolbar>
+
+
+
+    <!--<input type="text" (change)="save()" [(ngModel)]="fourre.dest"> a voir si ce code est juste (FOURRE.DEST)-->
+
+<!--process section -pages -->
+
+<div padding>
+  <ion-segment [(ngModel)]="process">
+    <!--<div class="border"></div>-->
+    <ion-segment-button value="Flight">
+      <p>Flight</p>
+           <ion-checkbox  mode="ios" checked="true"></ion-checkbox>
+    </ion-segment-button>
+
+    <ion-segment-button value="LFC">
+        <p>LFC</p>
+
+           <ion-checkbox  mode="ios" checked="false"></ion-checkbox>
+
+    </ion-segment-button>
+
+    <ion-segment-button value="LMC">
+        <p>LMC</p>
+
+           <ion-checkbox  mode="ios" checked="false"></ion-checkbox>
+
+    </ion-segment-button>
+
+    <ion-segment-button value="IR">
+        <p>IR</p>
+
+           <ion-checkbox mode="ios" checked="false"></ion-checkbox>
+
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+
+</ion-header>
+
+
+
+<ion-content padding #content>
+  <!--<ion-item>  ICONES POUR LE PROCESS BAR
+
+    <ion-icon name= "ios-checkmark-circle"></ion-icon>
+
+    <ion-icon name= "ios-checkmark-circle"></ion-icon>
+    <ion-icon name= "md-radio-button-off"><p>LMC</p></ion-icon>
+    <ion-icon name= "ios-checkmark-circle"></ion-icon>
+    <ion-icon name= "md-radio-button-off"><p>IR</p></ion-icon>
+
+  </ion-item> -->
+
+  <div [ngSwitch]="process">
+
+  <!--<p class="titresSections">Flight Data</p>-->
+
+    <div *ngSwitchCase="'Flight'">
+        <ion-list class="flightTimeData">
+          <ion-item>
+            <ion-label color="primary">STD</ion-label>
+            <ion-datetime displayFormat="HH:mm"  [(ngModel)]="fourre.std" ></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">ETD</ion-label>
+            <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.etd"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">STA</ion-label>
+            <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.sta"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">ATA</ion-label>
+            <ion-input type="text" [(ngModel)]="fourre.ata"></ion-input>
+          <!--  <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.etd"></ion-datetime>-->
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">SLOT</ion-label>
+            <ion-input type="text"[(ngModel)]="fourre.SLOT"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">INBOUND</ion-label>
+            <ion-input type="text"[(ngModel)]="fourre.inbound"></ion-input>
+          </ion-item>
+
+        </ion-list>
+
+
+
+        <ion-list class="flightData">
+
+          <ion-item>
+            <ion-label color="primary">Flight</ion-label>
+            <ion-input type="text" [(ngModel)]="fourre.flight"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">Destination</ion-label>
+            <ion-input type="text" [(ngModel)]="fourre.destination"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">Position</ion-label>
+            <ion-input type="number" [(ngModel)]="fourre.position"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">Gate</ion-label>
+            <ion-input type="text" [(ngModel)]="fourre.gate"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">Crew</ion-label>
+            <ion-input type="text" [(ngModel)]="fourre.crew"></ion-input>
+          </ion-item>
+
+        </ion-list>
+    </div>
+
+    <div *ngSwitchCase="'LFC'" class="lfcComplet">
+      <p class="titresSections">LFC</p>
+
+      <ion-list class="lfc">
+        <ion-item>
+          <ion-label color="primary">Nombre Paxs</ion-label>
+          <ion-input type="text" [(ngModel)]="fourre.paxs" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">Zones A B C</ion-label>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.zonesLfcA" >A</ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.zonesLfcB" >B</ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.zonesLfcC" >C</ion-input>
+        </ion-item>
+
+      <p>Chargement</p>
+
+      <ion-item>
+        <ion-label color="primary">Nombre Bagages Total: </ion-label>
+        <ion-input type="number" [(ngModel)]="fourre.totalBagsLfc" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Poids Moyen: </ion-label>
+        <ion-input type="number" [(ngModel)]="fourre.poidsMoyenLfc" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Poids Total: </ion-label>
+        <ion-input type="number" [(ngModel)]="fourre.poidsTotalLfc" ></ion-input>
+      </ion-item>
+
+      <p>Repartition soute</p>
+
+    <div class="cpt1">
+
+      <ion-item>
+
+        <ion-label color="primary">CPT1: </ion-label>
+            <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1Lfc" ></ion-input>
+            <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1PoidsLfc" ></ion-input>
+      </ion-item>
+   </div>
+
+   <div class="cpt3">
+      <ion-item>
+        <ion-label color="primary">CPT3: </ion-label>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3Lfc" ></ion-input>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3PoidsLfc" ></ion-input>
+      </ion-item>
+  </div>
+
+  <div class="cpt4">
+      <ion-item>
+        <ion-label color="primary">CPT4: </ion-label>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4Lfc" ></ion-input>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4PoidsLfc" ></ion-input>
+      </ion-item>
+  </div>
+
+  <div class="cpt5">
+      <ion-item>
+        <ion-label color="primary">CPT5: </ion-label>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5Lfc" ></ion-input>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5PoidsLfc" ></ion-input>
+      </ion-item>
+  </div>
+
+  <div class="clear"></div>
+
+  <div class="assCss">
+    <p>Assistances</p>
+
+      <button ion-button outline>WCHR</button>
+
+      <button ion-button outline>WCHS</button>
+      <button ion-button outline>WCMP</button>
+
+      <button ion-button outline>WCHC</button>
+      <button ion-button outline>WCMP</button>
+      <button ion-button outline>WCBD</button>
+      <ion-item>
+        <ion-label color="primary">Poids: </ion-label>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.poidsWcbd" ></ion-input>
+      </ion-item>
+
+      <button ion-button outline>BLND</button>
+      <button ion-button outline>DEAF</button>
+
+  </div>
+
+      </ion-list>
+
+    </div>
+
+    <div *ngSwitchCase="'LMC'" class="lmcComplet">
+      <p class="titresSections">LMC</p>
+
+      <ion-list class="lmc">
+        <ion-item>
+          <ion-label color="primary">Hold Bags</ion-label>
+          <ion-input type="number" [(ngModel)]="fourre.holdBagsLmc" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">Gate Bags</ion-label>
+          <ion-input type="number" [(ngModel)]="fourre.gateBagsLmc" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">Rush</ion-label>
+          <ion-input type="number" [(ngModel)]="fourre.rushLmc" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">WCMP</ion-label>
+          <ion-input type="number" [(ngModel)]="fourre.wcmpNbr" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">CPT</ion-label>
+          <ion-input type="number" [(ngModel)]="fourre.wcmpCptNbr" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">WCBD</ion-label>
+          <ion-input type="number" [(ngModel)]="fourre.wcbdNbr" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">CPT</ion-label>
+          <ion-input type="number" [(ngModel)]="fourre.wcbdCptNbr" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">Nombre paxs FINAL</ion-label>
+          <ion-input type="number" [(ngModel)]="fourre.nbrPaxsFinal" ></ion-input>
+          <ion-label color="primary">/</ion-label>
+          <ion-input type="number" [(ngModel)]="fourre.nbrPaxsFinalInf" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">CPT1: </ion-label>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1Lfc" ></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1PoidsLfc" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">CPT3: </ion-label>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3Lfc" ></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3PoidsLfc" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">CPT4: </ion-label>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4Lfc" ></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4PoidsLfc" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary">CPT5: </ion-label>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5Lfc" ></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5PoidsLfc" ></ion-input>
+        </ion-item>
+
+      </ion-list>
+    </div>
+
+
+    <div *ngSwitchCase="'IR'" class="irComplet">
+      <p class="titresSections">IR</p>
+
+      <ion-list class="Ir">
+          <div class="block1">
+            <div class="atd">
+              <ion-item>
+                <ion-label color="primary">ATD</ion-label>
+                <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.atd" ></ion-datetime>
+              </ion-item>
+            </div>
+
+          <div class="mn">
+            <ion-item>
+              <ion-label color="primary">DL</ion-label>
+              <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.TimeDelay" ></ion-datetime>
+            </ion-item>
+          </div>
+        </div>
+
+        <div class="block2">
+            <div class="irs1">
+                <ion-item>
+                  <ion-label color="primary">IR1</ion-label>
+                  <ion-input type="number" [(ngModel)]="fourre.irCode1" ></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label color="primary">DL1</ion-label>
+                  <ion-datetime displayFormat="mm" [(ngModel)]="fourre.mnDelay1" ></ion-datetime>
+              </ion-item>
+            </div>
+
+            <div class="irs2">
+                <ion-item>
+                  <ion-label color="primary">IR2</ion-label>
+                  <ion-input type="number" [(ngModel)]="fourre.irCode2" ></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label color="primary">DL2</ion-label>
+                  <ion-datetime displayFormat="mm" [(ngModel)]="fourre.mnDelay2" ></ion-datetime>
+                </ion-item>
+            </div>
+
+            <div class="irs3">
+                <ion-item>
+                  <ion-label color="primary">IR3</ion-label>
+                  <ion-input type="number" [(ngModel)]="fourre.irCode3" ></ion-input>
+                </ion-item>
+
+              <ion-item>
+                <ion-label color="primary">DL3</ion-label>
+                <ion-datetime displayFormat="mm" [(ngModel)]="fourre.mnDelay3" ></ion-datetime>
+              </ion-item>
+            </div>
+        </div>
+
+<div class="clear"></div>
+
+        <div class="sectionComments">
+          <ion-item class="textRemarks">
+            <ion-label id="remarks" color="primary">Remarks</ion-label>
+            <ion-input type="string" [(ngModel)]="remarks" ></ion-input>
+          </ion-item>
+        </div>
+
+      </ion-list>
+
+      <div class="saveBoutton">
+        <button ion-button outline (click)="save()">save</button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</ion-content>
