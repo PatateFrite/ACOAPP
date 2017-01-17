@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Patricia",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "Phi Hung",
+      "password": "987654"
+    }
+  ],
+  "fourres": [
+    {
+      "flight": "EZS1345",
+      "id": 2,
+      "destination": "BCN",
+      "std": "11:00"
+    },
+    {
+      "id": 5,
+      "std": "06:10",
+      "flight": "EZY 1958",
+      "destination": "RAK",
+      "position": "63",
+      "gate": "C54",
+      "crew": "2/4",
+      "time": {
+        "lastPassenger": "11:17",
+        "bus3": "11:17",
+        "technicEnd": "11:17"
+      }
+    },
+    {
+      "std": "14:00",
+      "flight": "EZS 1860",
+      "destination": "OPO",
+      "position": "25",
+      "gate": "D25",
+      "crew": "2/4",
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
