@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "startServer": "node ./node_modules/json-server/bin/index.js --watch db.json --port 3000"
   },
   "dependencies": {
     "@angular/common": "2.1.1",
@@ -21,6 +22,7 @@
     "ionic-angular": "2.0.0-rc.3",
     "ionic-native": "2.2.3",
     "ionicons": "3.0.0",
+    "json-server": "^0.9.4",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "0.6.26"
   },
