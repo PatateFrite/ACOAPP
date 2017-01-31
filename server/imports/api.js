@@ -18,7 +18,10 @@ module.exports = {
             let id = req.params.id;
 
             if(id=="today"){
-                return res.status(200).json([]);
+                return Fourre.find({},{sort:"-created"}, (err,fourres) => {
+                    if(err) res.status(500).json({error:err})
+                    res.status(200).json(fourres);
+                });
             }
 
             res.status(200).end();
