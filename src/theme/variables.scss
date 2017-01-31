@@ -1,5 +1,7 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/v2/theming/
+$font-path: "../assets/fonts";
+
 @import "ionic.globals";
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto');
 
@@ -85,3 +87,9 @@ $checkbox-ios-icon-border-color-off:$couleurorange;
 $checkbox-ios-icon-checkmark-color:$couleurorange;
 $checkbox-ios-icon-border-width: 3px;
 $checkbox-ios-icon-checkmark-width:2px;
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
