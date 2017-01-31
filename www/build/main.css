@@ -22481,7 +22481,7 @@ page-profil .item-avatar {
 }
 
 page-profil .userDefault {
-  background-image: url(img/userPic.jpg);
+  background-image: url(../assets/img/userPic.jpg);
   height: 160px;
   background-size: cover;
   background-position: center center;
