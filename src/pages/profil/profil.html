@@ -39,8 +39,8 @@
   <div [ngSwitch]="sections">
   <div *ngSwitchCase="'Today'" class="centrerContent">
     <div class="cssBouttonForm">
-      <button class="319Button" ion-button outline (click)="form('A319')">A319</button>
-      <button ion-button outline (click)="form('A320')">A320</button>
+      <button ion-button outline (click)="createFourre('A319')">A319</button>
+      <button ion-button outline (click)="createFourre('A320')">A320</button>
     </div>
 
     <ion-list (click)='monClick($event)'>

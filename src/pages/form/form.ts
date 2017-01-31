@@ -6,15 +6,6 @@ import { Routes } from '../../app/app.routes';
 
 
 
-
-//import {Observable} from "rxjs";
-/*
-  Generated class for the Form page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
-
 declare var localStorage: any;
 
 @Component({
@@ -48,10 +39,10 @@ export class FormPage {
   }
 
 
-
+/*
   ionViewDidLoad() {
     console.log('Hello FormPage Page');//ATTENTION IL FAUT IMPORTER MODULER REQUETE HTTP
-  }
+  }*/
 
   save(){
       //console.log("posting /fourres", this.fourre)
@@ -62,9 +53,7 @@ export class FormPage {
       if(this.mode == "create"){
 
           this.http
-            .post("http://localhost:3000/fourres/", this.fourre, {
-              headers : headers
-          })
+            .post("http://localhost:3000/fourre", this.fourre)
           .subscribe( (res) => console.log(res))
 
         } else {

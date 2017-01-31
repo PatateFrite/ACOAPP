@@ -7,8 +7,8 @@ import { LoginPage } from '../pages/login/login';
 import { ProfilPage } from '../pages/profil/profil';
 import { FormPage } from '../pages/form/form';
 
-
-import { Routes } from './app.routes';
+// SERVICES / PROVIDERS
+import { FourreService } from '../providers/fourre.service'
 
 @NgModule({
   declarations: [
@@ -32,6 +32,9 @@ import { Routes } from './app.routes';
     FormPage,
 
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+      {provide: ErrorHandler, useClass: IonicErrorHandler},
+      FourreService
+  ]
 })
 export class AppModule {}
