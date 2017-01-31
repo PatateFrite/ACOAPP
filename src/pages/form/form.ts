@@ -3,7 +3,7 @@ import { Http, Headers } from '@angular/http';
 import { NavController, MenuController, NavParams} from 'ionic-angular';
 
 import { Routes } from '../../app/app.routes';
-
+import { IFourre } from '../../models/fourre';
 
 
 declare var localStorage: any;
@@ -15,9 +15,9 @@ declare var localStorage: any;
 export class FormPage {
   public currentTime: string;
   private mode: string = "create";
+  private fourre: IFourre;
 
   type:any = localStorage.getItem("planeType")
-  fourre:any;
   process: string = "Flight";
 
   constructor(public navCtrl: NavController,
@@ -29,9 +29,9 @@ export class FormPage {
       this.fourre = this.params.data;
 
       if(this.fourre.time){
-      this.CurrentTimeData= this.fourre.time;
-     } else {
-      this.CurrentTimeData= {};
+        this.CurrentTimeData = this.fourre.time;
+      } else {
+        this.CurrentTimeData = {};
       }
 
 
@@ -50,19 +50,20 @@ export class FormPage {
       let headers = new Headers();
       headers.append('Content-Type', "application/json" );
 
+// TODO: Patleod: is mode create still necessary ??
       if(this.mode == "create"){
 
           this.http
-            .post("http://localhost:3000/fourre", this.fourre)
-          .subscribe( (res) => console.log(res))
+            .post("http://localhost:3000/fourre/"+ this.fourre.id, this.fourre)
+            .subscribe( (res) => console.log(res))
 
         } else {
 
-              this.http
-                .put("http://localhost:3000/fourres/" + this.fourre["id"] , this.fourre, {
-                  headers : headers
-              })
-              .subscribe( (res) => console.log(res))
+          this.http
+            .put("http://localhost:3000/fourres/" + this.fourre.id , this.fourre, {
+              headers : headers
+            })
+            .subscribe( (res) => console.log(res))
 
         }
 

@@ -30,6 +30,7 @@ export class FourreService {
         .then( res => {
             console.log("Created fourre :", res.json())
             callback(res.json());
+            this.fourres.push(res.json());
         })
         .catch( err => {
           console.error("Could not create fourre", err)
