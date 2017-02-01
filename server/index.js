@@ -22,10 +22,10 @@ app
 
     .post('/login', auth.login)
 
-    .get('/fourre'       , auth.authenticate, api.fourre.create)
-    .get('/fourres/:id'  , auth.authenticate, api.fourre.get)
-	.post("/fourre"      , auth.authenticate, api.fourre.update)
-    .delete("/fourres/:id",auth.authenticate, api.fourre.delete)
+    .post('/fourre'       , auth.authenticate, api.fourre.create)
+    .get('/fourre/:id'  , auth.authenticate, api.fourre.get)
+	.put("/fourre"      , auth.authenticate, api.fourre.update)
+    .delete("/fourre/:id",auth.authenticate, api.fourre.delete)
 
 /*io.on('connection', (socket) => {
 	console.log('a user connected');
