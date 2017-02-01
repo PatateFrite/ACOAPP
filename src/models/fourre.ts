@@ -1,7 +1,7 @@
 export interface IFourre {
     _id:                String;
     created:            Date;
-    time?:              String;
+    time?:              Object;
     std?:               String;
     etd?:               String;
     sta?:               String;

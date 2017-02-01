@@ -6,46 +6,46 @@
 
     <div class="dataCrew">
       <p class="titleProcessTime">Crew:</p>
-      <p>Crew change (on Position) <ion-icon id="crewChange" name="md-radio-button-on" (click)="getHeure($event)" > {{CurrentTimeData.crewChange}} </ion-icon></p>
-      <p>Ready <ion-icon id="ready" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.ready}} </ion-icon></p>
-      <p>Deboarding End <ion-icon id="deboard" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.deboard}}</ion-icon></p>
-      <p>Last Passenger on Board <ion-icon id="lastPassenger" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.lastPassenger}}</ion-icon></p>
+      <p>Crew change (on Position) <ion-icon id="crewChange" name="md-radio-button-on" (click)="getHeure($event)" > {{currentTimeData.crewChange}} </ion-icon></p>
+      <p>Ready <ion-icon id="ready" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.ready}} </ion-icon></p>
+      <p>Deboarding End <ion-icon id="deboard" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.deboard}}</ion-icon></p>
+      <p>Last Passenger on Board <ion-icon id="lastPassenger" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.lastPassenger}}</ion-icon></p>
     </div>
 
     <div class="dataBoarding">
       <p class="titleProcessTime">Boarding Time:</p>
-      <p>Pré-Boarding <ion-icon id="preboard" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.preboard}}</ion-icon></p>
-      <p>Boarding <ion-icon id="board" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.board}}</ion-icon></p>
-      <p>End Boarding <ion-icon id="boardEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.boardEnd}}</ion-icon></p>
+      <p>Pré-Boarding <ion-icon id="preboard" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.preboard}}</ion-icon></p>
+      <p>Boarding <ion-icon id="board" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.board}}</ion-icon></p>
+      <p>End Boarding <ion-icon id="boardEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.boardEnd}}</ion-icon></p>
     </div>
 
     <div class="dataDoor">
       <p class="titleProcessTime">Doors:</p>
-      <p>Aircraft Closed <ion-icon id="aircraftClose" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.aircraftClose}}</ion-icon></p>
-      <p>Holds Closed <ion-icon id="holdClose" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.holdClose}}</ion-icon></p>
+      <p>Aircraft Closed <ion-icon id="aircraftClose" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.aircraftClose}}</ion-icon></p>
+      <p>Holds Closed <ion-icon id="holdClose" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.holdClose}}</ion-icon></p>
     </div>
 
     <div class="dataBus">
       <p class="titleProcessTime">Bus:</p>
-      <p>1st Bus <ion-icon id="bus1" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.bus1}}</ion-icon></p>
-      <p>2nd Bus <ion-icon id="bus2" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.bus2}}</ion-icon></p>
-      <p>3rd Bus <ion-icon id="bus3" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.bus3}}</ion-icon></p>
+      <p>1st Bus <ion-icon id="bus1" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.bus1}}</ion-icon></p>
+      <p>2nd Bus <ion-icon id="bus2" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.bus2}}</ion-icon></p>
+      <p>3rd Bus <ion-icon id="bus3" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.bus3}}</ion-icon></p>
     </div>
 
     <div class="dataLoading">
       <p class="titleProcessTime">Loading: </p>
-      <p>Start <ion-icon id="loadStart" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.loadStart}}</ion-icon></p>
-      <p>End <ion-icon id="loadEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.loadEnd}}</ion-icon></p>
+      <p>Start <ion-icon id="loadStart" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.loadStart}}</ion-icon></p>
+      <p>End <ion-icon id="loadEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.loadEnd}}</ion-icon></p>
     </div>
 
     <div class="dataReactionary">
       <p class="titleProcessTime">Reactionary:</p>
-      <p>Fueling End <ion-icon id="fuelingEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.fuelingEnd}}</ion-icon></p>
-      <p>Technical Repair End <ion-icon id="technicEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.technicEnd}}</ion-icon></p>
-      <p>Bag searching <ion-icon id="bagSearch" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.bagSearch}}</ion-icon></p>
-      <p>Bag searching End <ion-icon id="bagSearchEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.bagSearchEnd}}</ion-icon></p>
-      <p>De-Ice Start <ion-icon id="deiceStart" name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.deiceStart}}</ion-icon></p>
-      <p>De-Ice End <ion-icon id="deiceEnd"name="md-radio-button-on" (click)="getHeure($event)"> {{CurrentTimeData.deiceEnd}}</ion-icon></p>
+      <p>Fueling End <ion-icon id="fuelingEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.fuelingEnd}}</ion-icon></p>
+      <p>Technical Repair End <ion-icon id="technicEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.technicEnd}}</ion-icon></p>
+      <p>Bag searching <ion-icon id="bagSearch" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.bagSearch}}</ion-icon></p>
+      <p>Bag searching End <ion-icon id="bagSearchEnd" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.bagSearchEnd}}</ion-icon></p>
+      <p>De-Ice Start <ion-icon id="deiceStart" name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.deiceStart}}</ion-icon></p>
+      <p>De-Ice End <ion-icon id="deiceEnd"name="md-radio-button-on" (click)="getHeure($event)"> {{currentTimeData.deiceEnd}}</ion-icon></p>
     </div>
 
   </ion-content>

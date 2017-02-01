@@ -19,6 +19,7 @@ export class FormPage {
   private mode: string = "create";
   private fourre: IFourre;
   private timeoutSave: any = null;
+  public currentTimeData= new Object;
 
   type: any = localStorage.getItem("planeType")
   process: string = "Flight";
@@ -32,9 +33,7 @@ export class FormPage {
     this.fourre = this.params.data;
 
     if (this.fourre.time) {
-      this.CurrentTimeData = this.fourre.time;
-    } else {
-      this.CurrentTimeData = {};
+      this.currentTimeData = this.fourre.time;
     }
 
     if (this.params.data.id) this.mode = "edit";
@@ -52,7 +51,6 @@ export class FormPage {
   }
 
 
-  CurrentTimeData: any = {};
   getHeure(event) {
     console.log('getheure->', event)
     let minutes: number;
@@ -66,9 +64,10 @@ export class FormPage {
 
     console.log(event.target.id)
 
-    this.CurrentTimeData[event.target.id] = new Date().getHours() + ':' + (minutes < 10 ? "0" + minutes : minutes);
+    this.currentTimeData[event.target.id] = new Date().getHours() + ':' + (minutes < 10 ? "0" + minutes : minutes);
 
-    this.fourre.time = this.CurrentTimeData;
+    this.fourre.time = this.currentTimeData;
+    this.save();
     //event.target.innerHTML = new Date().getHours()+':'+ (minutes<10 ? "0"+ minutes : minutes)
   }
 

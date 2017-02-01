@@ -27,6 +27,9 @@ const fourreSchema = new Mongoose.Schema({
     inbound : {
         type : String
     },
+    time : {
+        type: Object
+    },
     flight : {
         type : String
     },
