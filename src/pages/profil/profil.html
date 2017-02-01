@@ -43,10 +43,8 @@
       <button ion-button outline (click)="createFourre('A320')">A320</button>
     </div>
 
-    <ion-list (click)='monClick($event)'>
-
-
-        <ion-item-sliding *ngFor="let fourre of fourres" (click)="openFourre(fourre)">
+    <ion-list>
+        <ion-item-sliding *ngFor="let fourre of fourreService.fourres" (click)="openFourre(fourre)">
           <ion-item>
               {{ fourre._id }} - {{ type }} - {{ fourre.flight }} - {{ fourre.destination }} - {{ fourre.std }}
           </ion-item>
@@ -56,8 +54,6 @@
             </button>
           </ion-item-options>
         </ion-item-sliding>
-
-
     </ion-list>
   </div>
 

@@ -2,12 +2,12 @@ export interface IFourre {
     _id:                String;
     created:            Date;
     time?:              String;
-    std?:               Date;
-    etd?:               Date;
-    sta?:               Date;
-    ata?:               Date;
-    slot?:              Date;
-    inbound?:           Date;
+    std?:               String;
+    etd?:               String;
+    sta?:               String;
+    ata?:               String;
+    slot?:              String;
+    inbound?:           String;
     flight?:            String;
     destination?:       String;
     position?:          String;

@@ -2,23 +2,30 @@ const Mongoose = require('mongoose');
 const colour = require('colour');
 
 const fourreSchema = new Mongoose.Schema({
+    created : {
+        type : Date,
+        default : Date.now
+    },
+    planeType : { // "type" is a reserved word
+        type : String
+    },
     std : {
-        type : Date
+        type : String
     },
     etd : {
-        type : Date
+        type : String
     },
     sta : {
-        type : Date
+        type : String
     },
     ata : {
-        type : Date
+        type : String
     },
     slot : {
-        type : Date
+        type : String
     },
     inbound : {
-        type : Date
+        type : String
     },
     flight : {
         type : String

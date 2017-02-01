@@ -136,33 +136,33 @@
         <ion-list class="flightTimeData">
           <ion-item>
             <ion-label color="primary">STD</ion-label>
-            <ion-datetime displayFormat="HH:mm"  [(ngModel)]="fourre.std" ></ion-datetime>
+            <ion-datetime displayFormat="HH:mm"  [(ngModel)]="fourre.std" (ngModelChange)="save()"></ion-datetime>
           </ion-item>
 
           <ion-item>
             <ion-label color="primary">ETD</ion-label>
-            <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.etd"></ion-datetime>
+            <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.etd" (ngModelChange)="save()"></ion-datetime>
           </ion-item>
 
           <ion-item>
             <ion-label color="primary">STA</ion-label>
-            <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.sta"></ion-datetime>
+            <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.sta" (ngModelChange)="save()"></ion-datetime>
           </ion-item>
 
           <ion-item>
             <ion-label color="primary">ATA</ion-label>
-            <ion-input type="text" [(ngModel)]="fourre.ata"></ion-input>
+            <ion-input type="text" [(ngModel)]="fourre.ata" (ngModelChange)="save()"></ion-input>
           <!--  <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.etd"></ion-datetime>-->
           </ion-item>
 
           <ion-item>
             <ion-label color="primary">SLOT</ion-label>
-            <ion-input type="text"[(ngModel)]="fourre.SLOT"></ion-input>
+            <ion-input type="text"[(ngModel)]="fourre.SLOT" (ngModelChange)="save()"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label color="primary">INBOUND</ion-label>
-            <ion-input type="text"[(ngModel)]="fourre.inbound"></ion-input>
+            <ion-input type="text"[(ngModel)]="fourre.inbound" (ngModelChange)="save()"></ion-input>
           </ion-item>
 
         </ion-list>
@@ -173,27 +173,27 @@
 
           <ion-item>
             <ion-label color="primary">Flight</ion-label>
-            <ion-input type="text" [(ngModel)]="fourre.flight" (blur)="onValueChanged(event)"></ion-input>
+            <ion-input type="text" [(ngModel)]="fourre.flight" (ngModelChange)="save()"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label color="primary">Destination</ion-label>
-            <ion-input type="text" [(ngModel)]="fourre.destination"></ion-input>
+            <ion-input type="text"  [(ngModel)]="fourre.destination" (ngModelChange)="save()"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label color="primary">Position</ion-label>
-            <ion-input type="number" [(ngModel)]="fourre.position"></ion-input>
+            <ion-input type="number" [(ngModel)]="fourre.position" (ngModelChange)="save()"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label color="primary">Gate</ion-label>
-            <ion-input type="text" [(ngModel)]="fourre.gate"></ion-input>
+            <ion-input type="text" [(ngModel)]="fourre.gate" (ngModelChange)="save()"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label color="primary">Crew</ion-label>
-            <ion-input type="text" [(ngModel)]="fourre.crew"></ion-input>
+            <ion-input type="text" [(ngModel)]="fourre.crew" (ngModelChange)="save()"></ion-input>
           </ion-item>
 
         </ion-list>
@@ -205,31 +205,31 @@
       <ion-list class="lfc">
         <ion-item>
           <ion-label color="primary">Nombre Paxs</ion-label>
-          <ion-input type="text" [(ngModel)]="fourre.paxs" ></ion-input>
+          <ion-input type="text" [(ngModel)]="fourre.paxs"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">Zones A B C</ion-label>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.zonesLfcA" >A</ion-input>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.zonesLfcB" >B</ion-input>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.zonesLfcC" >C</ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.zonesLfcA"  (ngModelChange)="save()">A</ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.zonesLfcB"  (ngModelChange)="save()">B</ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.zonesLfcC"  (ngModelChange)="save()">C</ion-input>
         </ion-item>
 
       <p>Chargement</p>
 
       <ion-item>
         <ion-label color="primary">Nombre Bagages Total: </ion-label>
-        <ion-input type="number" [(ngModel)]="fourre.totalBagsLfc" ></ion-input>
+        <ion-input type="number" [(ngModel)]="fourre.totalBagsLfc"  (ngModelChange)="save()"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary">Poids Moyen: </ion-label>
-        <ion-input type="number" [(ngModel)]="fourre.poidsMoyenLfc" ></ion-input>
+        <ion-input type="number" [(ngModel)]="fourre.poidsMoyenLfc" (ngModelChange)="save()" ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary">Poids Total: </ion-label>
-        <ion-input type="number" [(ngModel)]="fourre.poidsTotalLfc" ></ion-input>
+        <ion-input type="number" [(ngModel)]="fourre.poidsTotalLfc"  (ngModelChange)="save()"></ion-input>
       </ion-item>
 
       <p>Repartition soute</p>
@@ -239,32 +239,32 @@
       <ion-item>
 
         <ion-label color="primary">CPT1: </ion-label>
-            <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1Lfc" ></ion-input>
-            <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1PoidsLfc" ></ion-input>
+            <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1Lfc"  (ngModelChange)="save()"></ion-input>
+            <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1PoidsLfc"  (ngModelChange)="save()"></ion-input>
       </ion-item>
    </div>
 
    <div class="cpt3">
       <ion-item>
         <ion-label color="primary">CPT3: </ion-label>
-        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3Lfc" ></ion-input>
-        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3PoidsLfc" ></ion-input>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3Lfc"  (ngModelChange)="save()"></ion-input>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3PoidsLfc" (ngModelChange)="save()" ></ion-input>
       </ion-item>
   </div>
 
   <div class="cpt4">
       <ion-item>
         <ion-label color="primary">CPT4: </ion-label>
-        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4Lfc" ></ion-input>
-        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4PoidsLfc" ></ion-input>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4Lfc"  (ngModelChange)="save()"></ion-input>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4PoidsLfc"  (ngModelChange)="save()"></ion-input>
       </ion-item>
   </div>
 
   <div class="cpt5">
       <ion-item>
         <ion-label color="primary">CPT5: </ion-label>
-        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5Lfc" ></ion-input>
-        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5PoidsLfc" ></ion-input>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5Lfc"  (ngModelChange)="save()"></ion-input>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5PoidsLfc"  (ngModelChange)="save()"></ion-input>
       </ion-item>
   </div>
 
@@ -283,7 +283,7 @@
       <button ion-button outline>WCBD</button>
       <ion-item>
         <ion-label color="primary">Poids: </ion-label>
-        <ion-input class="cases" type="number" [(ngModel)]="fourre.poidsWcbd" ></ion-input>
+        <ion-input class="cases" type="number" [(ngModel)]="fourre.poidsWcbd"  (ngModelChange)="save()"></ion-input>
       </ion-item>
 
       <button ion-button outline>BLND</button>
@@ -301,68 +301,68 @@
       <ion-list class="lmc">
         <ion-item>
           <ion-label color="primary">Hold Bags</ion-label>
-          <ion-input type="number" [(ngModel)]="fourre.holdBagsLmc" ></ion-input>
+          <ion-input type="number" [(ngModel)]="fourre.holdBagsLmc"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">Gate Bags</ion-label>
-          <ion-input type="number" [(ngModel)]="fourre.gateBagsLmc" ></ion-input>
+          <ion-input type="number" [(ngModel)]="fourre.gateBagsLmc"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">Rush</ion-label>
-          <ion-input type="number" [(ngModel)]="fourre.rushLmc" ></ion-input>
+          <ion-input type="number" [(ngModel)]="fourre.rushLmc"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">WCMP</ion-label>
-          <ion-input type="number" [(ngModel)]="fourre.wcmpNbr" ></ion-input>
+          <ion-input type="number" [(ngModel)]="fourre.wcmpNbr"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">CPT</ion-label>
-          <ion-input type="number" [(ngModel)]="fourre.wcmpCptNbr" ></ion-input>
+          <ion-input type="number" [(ngModel)]="fourre.wcmpCptNbr"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">WCBD</ion-label>
-          <ion-input type="number" [(ngModel)]="fourre.wcbdNbr" ></ion-input>
+          <ion-input type="number" [(ngModel)]="fourre.wcbdNbr"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">CPT</ion-label>
-          <ion-input type="number" [(ngModel)]="fourre.wcbdCptNbr" ></ion-input>
+          <ion-input type="number" [(ngModel)]="fourre.wcbdCptNbr"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">Nombre paxs FINAL</ion-label>
-          <ion-input type="number" [(ngModel)]="fourre.nbrPaxsFinal" ></ion-input>
+          <ion-input type="number" [(ngModel)]="fourre.nbrPaxsFinal"  (ngModelChange)="save()"></ion-input>
           <ion-label color="primary">/</ion-label>
-          <ion-input type="number" [(ngModel)]="fourre.nbrPaxsFinalInf" ></ion-input>
+          <ion-input type="number" [(ngModel)]="fourre.nbrPaxsFinalInf"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">CPT1: </ion-label>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1Lfc" ></ion-input>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1PoidsLfc" ></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1Lfc"  (ngModelChange)="save()"></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1PoidsLfc"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">CPT3: </ion-label>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3Lfc" ></ion-input>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3PoidsLfc" ></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3Lfc"  (ngModelChange)="save()"></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3PoidsLfc"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">CPT4: </ion-label>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4Lfc" ></ion-input>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4PoidsLfc" ></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4Lfc"  (ngModelChange)="save()"></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4PoidsLfc"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary">CPT5: </ion-label>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5Lfc" ></ion-input>
-          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5PoidsLfc" ></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5Lfc"  (ngModelChange)="save()"></ion-input>
+          <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5PoidsLfc"  (ngModelChange)="save()"></ion-input>
         </ion-item>
 
       </ion-list>
@@ -377,14 +377,14 @@
             <div class="atd">
               <ion-item>
                 <ion-label color="primary">ATD</ion-label>
-                <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.atd" ></ion-datetime>
+                <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.atd"  (ngModelChange)="save()"></ion-datetime>
               </ion-item>
             </div>
 
           <div class="mn">
             <ion-item>
               <ion-label color="primary">DL</ion-label>
-              <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.TimeDelay" ></ion-datetime>
+              <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.TimeDelay"  (ngModelChange)="save()"></ion-datetime>
             </ion-item>
           </div>
         </div>
@@ -393,36 +393,36 @@
             <div class="irs1">
                 <ion-item>
                   <ion-label color="primary">IR1</ion-label>
-                  <ion-input type="number" [(ngModel)]="fourre.irCode1" ></ion-input>
+                  <ion-input type="number" [(ngModel)]="fourre.irCode1"  (ngModelChange)="save()"></ion-input>
                 </ion-item>
 
                 <ion-item>
                   <ion-label color="primary">DL1</ion-label>
-                  <ion-datetime displayFormat="mm" [(ngModel)]="fourre.mnDelay1" ></ion-datetime>
+                  <ion-datetime displayFormat="mm" [(ngModel)]="fourre.mnDelay1"  (ngModelChange)="save()"></ion-datetime>
               </ion-item>
             </div>
 
             <div class="irs2">
                 <ion-item>
                   <ion-label color="primary">IR2</ion-label>
-                  <ion-input type="number" [(ngModel)]="fourre.irCode2" ></ion-input>
+                  <ion-input type="number" [(ngModel)]="fourre.irCode2"  (ngModelChange)="save()"></ion-input>
                 </ion-item>
 
                 <ion-item>
                   <ion-label color="primary">DL2</ion-label>
-                  <ion-datetime displayFormat="mm" [(ngModel)]="fourre.mnDelay2" ></ion-datetime>
+                  <ion-datetime displayFormat="mm" [(ngModel)]="fourre.mnDelay2"  (ngModelChange)="save()"></ion-datetime>
                 </ion-item>
             </div>
 
             <div class="irs3">
                 <ion-item>
                   <ion-label color="primary">IR3</ion-label>
-                  <ion-input type="number" [(ngModel)]="fourre.irCode3" ></ion-input>
+                  <ion-input type="number" [(ngModel)]="fourre.irCode3"  (ngModelChange)="save()"></ion-input>
                 </ion-item>
 
               <ion-item>
                 <ion-label color="primary">DL3</ion-label>
-                <ion-datetime displayFormat="mm" [(ngModel)]="fourre.mnDelay3" ></ion-datetime>
+                <ion-datetime displayFormat="mm" [(ngModel)]="fourre.mnDelay3"  (ngModelChange)="save()"></ion-datetime>
               </ion-item>
             </div>
         </div>
@@ -432,15 +432,17 @@
         <div class="sectionComments">
           <ion-item class="textRemarks">
             <ion-label id="remarks" color="primary">Remarks</ion-label>
-            <ion-input type="string" [(ngModel)]="remarks" ></ion-input>
+            <ion-input type="string" [(ngModel)]="remarks"  (ngModelChange)="save()"></ion-input>
           </ion-item>
         </div>
 
       </ion-list>
 
+      <!--
       <div class="saveBoutton">
         <button ion-button outline (click)="save()">save</button>
       </div>
+      -->
 
     </div>
 

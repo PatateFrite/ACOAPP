@@ -9,7 +9,7 @@ import { Http} from '@angular/http';
 import {LoginPage} from '../login/login';
 
 import { FourreService } from '../../providers/fourre.service';
-import { IFourre } from '../../models/fourre';
+// import { IFourre } from '../../models/fourre';
 
 declare var localStorage: any;
 
@@ -19,7 +19,8 @@ declare var localStorage: any;
 
 })
 export class ProfilPage {
-  fourres: Array<IFourre> = new Array<IFourre>();
+
+  // fourres: Array<IFourre> = new Array<IFourre>();  // @Patleod Inutile, on pioche directement dans le service
 
   base64Image:any;
   reportImages:Array<string> = [];
@@ -30,13 +31,12 @@ export class ProfilPage {
               private http: Http,
               private fourreService : FourreService) {
 
-    console.log('Hello ProfilPage Page constructor');
   }
 
 
   ionViewWillEnter(){
       this.fourreService.refreshList();
-      this.fourres = this.fourreService.fourres;
+      // this.fourres = this.fourreService.fourres; // @Patleod Inutile, on pioche directement dans le service
   }
 
   takePicture(){
@@ -63,14 +63,13 @@ export class ProfilPage {
       }
       ).then((imageData) => {
         this.reportImages.push('data:image/jpeg;base64,' + imageData);
-   // imageData is either a base64 encoded string or a file URI
-   // If it's base64:
-      //this.base64Image = 'data:image/jpeg;base64,' + imageData;
-  }, (err) => {
-   // Handle error
-  });
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+          //this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      }, (err) => {
+      // Handle error
+      });
     }
-
 
 
   logout(){
@@ -80,17 +79,11 @@ export class ProfilPage {
 
   // FOURRES MANAGEMENT
 
-  createFourre(type){
-    this.fourreService.createFourre(type, (fourre) =>{
-      this.openFourre(fourre);
-    });
+  createFourre(planeType){
+    this.fourreService.createFourre(planeType, this.openFourre.bind(this));
   }
 
   openFourre(fourre){
     this.navCtrl.push(Routes.getPage(Routes["FORM"]), fourre);
-  }
-
-  monClick() {
-    console.log("############ Why this action ?????")
   }
 }

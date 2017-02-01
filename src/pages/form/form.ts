@@ -5,6 +5,7 @@ import { NavController, MenuController, NavParams } from 'ionic-angular';
 import { Routes } from '../../app/app.routes';
 import { IFourre } from '../../models/fourre';
 
+import { FourreService } from '../../providers/fourre.service';
 
 declare var localStorage: any;
 
@@ -13,16 +14,19 @@ declare var localStorage: any;
   templateUrl: 'form.html'
 })
 export class FormPage {
+
   public currentTime: string;
   private mode: string = "create";
   private fourre: IFourre;
+  private timeoutSave: any = null;
 
   type: any = localStorage.getItem("planeType")
   process: string = "Flight";
 
   constructor(public navCtrl: NavController,
     private http: Http, menu: MenuController,
-    private params: NavParams
+    private params: NavParams,
+    private fourreService: FourreService
   ) {
     menu.enable(true);
     this.fourre = this.params.data;
@@ -38,9 +42,13 @@ export class FormPage {
 
 
   save() {
-    this.http
-      .post("http://localhost:3000/fourre/" + this.fourre, this.fourre)
-      .subscribe((res) => console.log(res))
+    // Debouncing
+    clearTimeout(this.timeoutSave);
+    this.timeoutSave = setTimeout( ()=>{
+      console.log("Saving... Fourre is now = ", this.fourre)
+      this.fourreService.save(this.fourre);
+    }, 1000)
+
   }
 
 

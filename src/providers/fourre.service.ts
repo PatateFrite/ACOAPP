@@ -3,29 +3,21 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-/*
-  Generated class for the ProvidersFourre provider.
+import { IFourre } from '../models/fourre';
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class FourreService {
 
   serverUrl: String = "http://localhost:3000";
-  fourres : Array<any> = [];
+  fourres : Array<IFourre> = [];
 
   constructor(public http: Http) {
-    console.log('Hello from FourreService');
 
   }
 
-
-  createFourre(type,callback){  // type = 319 or 320
-      console.log("Creating fourre :");
-
+  createFourre(planeType,callback){  // planeType = 319 or 320
       this.http
-        .post(this.serverUrl + "/fourre", null)
+        .post(this.serverUrl + "/fourre", { planeType : planeType })
         .toPromise()
         .then( res => {
             console.log("Created fourre :", res.json())
@@ -33,10 +25,17 @@ export class FourreService {
             this.fourres.push(res.json());
         })
         .catch( err => {
-          console.error("Could not create fourre", err)
+          console.error("Could not create fourre", err.json())
         })
   }
 
+  save(fourre){
+    this.http
+          .put(this.serverUrl + "/fourre", fourre)
+          .toPromise()
+          .then((res) => console.log("Saved!", res))
+          .catch((err) => console.error("Error saving", err))
+    }
 
   refreshList(){
     this.http
@@ -47,7 +46,7 @@ export class FourreService {
           console.log("this.fourres = ",this.fourres)
       })
       .catch( err => {
-          console.error("Could retrieve day's fourres", err)
+          console.error("Could not retrieve day's fourres", err)
         })
 
   }
