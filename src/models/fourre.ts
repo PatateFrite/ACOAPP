@@ -1,5 +1,5 @@
 export interface IFourre {
-    id:                 String;
+    _id:                String;
     created:            Date;
     time?:              String;
     std?:               Date;

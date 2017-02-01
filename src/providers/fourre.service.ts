@@ -25,7 +25,7 @@ export class FourreService {
       console.log("Creating fourre :");
 
       this.http
-        .get(this.serverUrl + "/fourre")
+        .post(this.serverUrl + "/fourre", null)
         .toPromise()
         .then( res => {
             console.log("Created fourre :", res.json())
@@ -40,7 +40,7 @@ export class FourreService {
 
   refreshList(){
     this.http
-      .get(this.serverUrl + "/fourres/today")
+      .get(this.serverUrl + "/fourre/today")
       .toPromise()
       .then( res => {
           this.fourres = res.json();

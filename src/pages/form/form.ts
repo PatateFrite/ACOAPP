@@ -50,27 +50,29 @@ export class FormPage {
       let headers = new Headers();
       headers.append('Content-Type', "application/json" );
 
-// TODO: Patleod: is mode create still necessary ??
-      if(this.mode == "create"){
+// // TODO: Patleod: is mode create still necessary ??
+//       if(this.mode == "create"){
+
+//           this.http
+//             .post("http://localhost:3000/fourre/"+ this.fourre.id, this.fourre)
+//             .subscribe( (res) => console.log(res))
+
+//         } else {
 
           this.http
-            .post("http://localhost:3000/fourre/"+ this.fourre.id, this.fourre)
-            .subscribe( (res) => console.log(res))
-
-        } else {
-
-          this.http
-            .put("http://localhost:3000/fourres/" + this.fourre.id , this.fourre, {
+            .put("http://localhost:3000/fourre/" + this.fourre._id , this.fourre, {
               headers : headers
             })
             .subscribe( (res) => console.log(res))
 
-        }
+        // }
 
         this.navCtrl.pop(Routes.getPage(Routes.PROFIL));
-    }
+  }
 
-
+  onValueChanged(event) {
+    this.save();
+  }
 
 
 

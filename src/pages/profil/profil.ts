@@ -9,7 +9,7 @@ import { Http} from '@angular/http';
 import {LoginPage} from '../login/login';
 
 import { FourreService } from '../../providers/fourre.service';
-
+import { IFourre } from '../../models/fourre';
 
 declare var localStorage: any;
 
@@ -19,6 +19,7 @@ declare var localStorage: any;
 
 })
 export class ProfilPage {
+  fourres: Array<IFourre> = new Array<IFourre>();
 
   base64Image:any;
   reportImages:Array<string> = [];
@@ -35,6 +36,7 @@ export class ProfilPage {
 
   ionViewWillEnter(){
       this.fourreService.refreshList();
+      this.fourres = this.fourreService.fourres;
   }
 
   takePicture(){
@@ -76,16 +78,19 @@ export class ProfilPage {
     this.navCtrl.setRoot(LoginPage); //pr revenir en arrière, sinon .pop avec le route.login
   }
 
-    // FOURRES MANAGEMENT
+  // FOURRES MANAGEMENT
 
-    createFourre(type){
-      this.fourreService.createFourre(type, (fourre) =>{
-        this.openFourre(fourre);
-      });
-    }
+  createFourre(type){
+    this.fourreService.createFourre(type, (fourre) =>{
+      this.openFourre(fourre);
+    });
+  }
 
-   openFourre(fourre){
-      this.navCtrl.push(Routes.getPage(Routes["FORM"]), fourre);
-    }
+  openFourre(fourre){
+    this.navCtrl.push(Routes.getPage(Routes["FORM"]), fourre);
+  }
 
+  monClick() {
+    console.log("############ Why this action ?????")
+  }
 }

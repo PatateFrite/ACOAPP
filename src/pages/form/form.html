@@ -173,7 +173,7 @@
 
           <ion-item>
             <ion-label color="primary">Flight</ion-label>
-            <ion-input type="text" [(ngModel)]="fourre.flight"></ion-input>
+            <ion-input type="text" [(ngModel)]="fourre.flight" (blur)="onValueChanged(event)"></ion-input>
           </ion-item>
 
           <ion-item>
