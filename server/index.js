@@ -22,9 +22,9 @@ app
 
     .post('/login', auth.login)
 
-    .post('/fourre'       , auth.authenticate, api.fourre.create)
+    .post('/fourre'     , auth.authenticate, api.fourre.create)
     .get('/fourre/:id'  , auth.authenticate, api.fourre.get)
-	.put("/fourre"      , auth.authenticate, api.fourre.update)
+	.put('/fourre'      , auth.authenticate, api.fourre.update)
     .delete("/fourre/:id",auth.authenticate, api.fourre.delete)
 
 /*io.on('connection', (socket) => {

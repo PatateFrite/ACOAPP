@@ -2,10 +2,6 @@ const Mongoose = require('mongoose');
 const colour = require('colour');
 
 const fourreSchema = new Mongoose.Schema({
-    created : {
-        type : Date,
-        default : Date.now
-    },
     std : {
         type : Date
     },
