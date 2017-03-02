@@ -7,8 +7,6 @@
 <p>npm install -g ionic</p>
 <p>npm install</p>
 
-<p>npm run startServer   (start the json-server defined in package.json scripts</p>
-<p>ctrl + t on terminal</p>
 <p>ionic serve</p>
 
 
