@@ -12,11 +12,14 @@ const auth = require('./imports/auth');
 
 const port = 3000;
 
+
+const siteDir = __dirname.replace('server','www');
+
 app
 	.use(compression()) // GZIP
 	.use(cors())
-	.use(express.static(__dirname))
-	.use(express.static(__dirname + '/assets'))
+	.use(express.static(siteDir))
+	.use(express.static(siteDir + '/assets'))
 	.use(bodyParser.json({ limit: '3mb' }))
 	.use(bodyParser.urlencoded({ 'extended': true, limit: '3mb' }))
 

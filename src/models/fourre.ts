@@ -2,6 +2,7 @@ export interface IFourre {
     _id:                String;
     created:            Date;
     time?:              Object;
+    planeType:          String;
     std?:               String;
     etd?:               String;
     sta?:               String;
