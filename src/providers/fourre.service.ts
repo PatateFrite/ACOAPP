@@ -8,7 +8,7 @@ import { IFourre } from '../models/fourre';
 @Injectable()
 export class FourreService {
 
-  serverUrl: String = "http://localhost:3000";
+  serverUrl: String = window.location.origin;
   fourres : Array<IFourre> = [];
 
   constructor(public http: Http) {
