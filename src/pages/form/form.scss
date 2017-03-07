@@ -70,15 +70,39 @@ page-form {
 //  z-index:-0;
 //}
 
+//SECTION CARRE DS FLIGHT AVEC HEURES ATC AND CO
 ion-list.flightTimeData.list.list-md{
-  height: 280px;
-  width: 30%;
+  height: 470px;
+  width: 40%;
   margin:auto;
   border: 1px solid $couleurorange;
   padding: 5px;
   color:#6b6865;
   margin-top: 60px;
+
 }
+
+//SECTION FORM flight
+
+
+.item-md {
+  position: relative;
+  padding-right: 0;
+  //padding-left: 16px;
+  font-size: 1.8rem;
+  font-weight: normal;
+  text-transform: none;
+  color: #000;
+  background-color: #fff;
+
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.list-md .item-input:last-child {
+  border-bottom:none;
+}
+
+
 
 .list-md{
   margin: 0px;
@@ -144,10 +168,10 @@ ion-list.flightTimeData.list.list-md{
 }
 
 .label.label-md.label-md-primary{
-  color:$couleurgris;
+  color:$couleurgrisF;
 }
 .cases .text-input.ng-untouched.ng-pristine.ng-valid.text-input-md{
-  border:1px solid $couleurgris;
+  border:1px solid $couleurgrisF;
   width:60px;
   height:20px;
 }

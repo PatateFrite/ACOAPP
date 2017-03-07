@@ -1,0 +1,47 @@
+[{
+  "Flight": "1950",
+  "Destination": "MAN",
+  "Position": "66",
+  "Gate": "C52",
+  "STD":"14:15",
+  "ETD":"14:35",
+  "ATC":"14:18 - 14:33",
+  "STA": "13:35",
+  "ATA":"14:00",
+  "INBOUND":{
+    "Flight":"1945",
+    "Destination": "MAN",
+    },
+},
+
+{
+  "Flight": "1448",
+  "Destination": "LIS",
+  "Position": "121",
+  "Gate": "D21",
+  "STD":"21:05",
+  "ETD":"",
+  "ATC":"",
+  "STA": "20:20",
+  "ATA":"",
+  "INBOUND":{
+    "Flight":"1447",
+    "Destination": "LIS",
+    },
+ },
+
+  {
+    "Flight": "6154",
+    "Destination": "BRS",
+    "Position": "34",
+    "Gate": "B34",
+    "STD":"10:40",
+    "ETD":"",
+    "ATC":"11:00 - 11:15",
+    "STA": "10:05",
+    "ATA":"09:52",
+    "INBOUND":{
+      "Flight":"1405",
+      "Destination": "BCN",
+    },
+  }]

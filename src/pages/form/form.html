@@ -132,49 +132,27 @@
 
   <!--<p class="titresSections">Flight Data</p>-->
 
+
     <div *ngSwitchCase="'Flight'">
+
+
+      <ion-list class="flightData">
+
+        <ion-item>
+          <ion-label color="primary">FLIGHT</ion-label>
+          <ion-input type="text" [(ngModel)]="fourre.flight" (ngModelChange)="save()"></ion-input>
+        </ion-item>
+
+  <!--section à déplacer-->
+        <!--<ion-item>
+          <ion-label color="primary">Crew</ion-label>
+          <ion-input type="text" [(ngModel)]="fourre.crew" (ngModelChange)="save()"></ion-input>
+        </ion-item>-->
+
+      </ion-list>
+
+
         <ion-list class="flightTimeData">
-          <ion-item>
-            <ion-label color="primary">STD</ion-label>
-            <ion-datetime displayFormat="HH:mm"  [(ngModel)]="fourre.std" (ngModelChange)="save()"></ion-datetime>
-          </ion-item>
-
-          <ion-item>
-            <ion-label color="primary">ETD</ion-label>
-            <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.etd" (ngModelChange)="save()"></ion-datetime>
-          </ion-item>
-
-          <ion-item>
-            <ion-label color="primary">STA</ion-label>
-            <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.sta" (ngModelChange)="save()"></ion-datetime>
-          </ion-item>
-
-          <ion-item>
-            <ion-label color="primary">ATA</ion-label>
-            <ion-input type="text" [(ngModel)]="fourre.ata" (ngModelChange)="save()"></ion-input>
-          <!--  <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.etd"></ion-datetime>-->
-          </ion-item>
-
-          <ion-item>
-            <ion-label color="primary">SLOT</ion-label>
-            <ion-input type="text"[(ngModel)]="fourre.SLOT" (ngModelChange)="save()"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label color="primary">INBOUND</ion-label>
-            <ion-input type="text"[(ngModel)]="fourre.inbound" (ngModelChange)="save()"></ion-input>
-          </ion-item>
-
-        </ion-list>
-
-
-
-        <ion-list class="flightData">
-
-          <ion-item>
-            <ion-label color="primary">Flight</ion-label>
-            <ion-input type="text" [(ngModel)]="fourre.flight" (ngModelChange)="save()"></ion-input>
-          </ion-item>
 
           <ion-item>
             <ion-label color="primary">Destination</ion-label>
@@ -190,13 +168,43 @@
             <ion-label color="primary">Gate</ion-label>
             <ion-input type="text" [(ngModel)]="fourre.gate" (ngModelChange)="save()"></ion-input>
           </ion-item>
-
+<br>
           <ion-item>
-            <ion-label color="primary">Crew</ion-label>
-            <ion-input type="text" [(ngModel)]="fourre.crew" (ngModelChange)="save()"></ion-input>
+            <ion-label color="primary">STD</ion-label>
+            <ion-datetime displayFormat="HH:mm"  [(ngModel)]="fourre.std" (ngModelChange)="save()"></ion-datetime>
           </ion-item>
 
+          <ion-item>
+            <ion-label color="primary">ETD</ion-label>
+            <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.etd" (ngModelChange)="save()"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">SLOT</ion-label>
+            <ion-input type="text"[(ngModel)]="fourre.SLOT" (ngModelChange)="save()"></ion-input>
+          </ion-item>
+
+<br>
+          <ion-item>
+            <ion-label color="primary">STA</ion-label>
+            <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.sta" (ngModelChange)="save()"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">ATA</ion-label>
+            <ion-input type="text" [(ngModel)]="fourre.ata" (ngModelChange)="save()"></ion-input>
+          <!--  <ion-datetime displayFormat="HH:mm" [(ngModel)]="fourre.etd"></ion-datetime>-->
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary">INBOUND</ion-label>
+            <ion-input type="text"[(ngModel)]="fourre.inbound" (ngModelChange)="save()"></ion-input>
+          </ion-item>
+
+
         </ion-list>
+
+
     </div>
 
     <div *ngSwitchCase="'LFC'" class="lfcComplet">
