@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -12,7 +12,7 @@ export class FourreService {
 
   fourres : Array<IFourre> = [];
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public zone: NgZone) {
 
   }
 
@@ -39,24 +39,25 @@ export class FourreService {
     }
 
   refreshList(){
-    this.http
-      .get(serverUrl + "/fourre/today")
-      .toPromise()
-      .then( res => {
-          this.fourres = res.json();
-          console.log("this.fourres = ",this.fourres)
-      })
-      .catch( err => {
-          console.error("Could not retrieve day's fourres", err)
+    this.zone.run(() => {
+      this.http
+        .get(serverUrl + "/fourre/today")
+        .toPromise()
+        .then( (res) => {
+            this.fourres = res.json();
+            console.log("this.fourres = ",this.fourres)
         })
-
+        .catch( (err) => {
+            console.error("Could not retrieve day's fourres", err)
+          })
+    })
   }
 
   deleteFourre(event, idItem){
     console.log(event, idItem)
     event.stopPropagation()
     this.http
-      .delete(serverUrl + "/fourre" + idItem )
+      .delete(serverUrl + "/fourre/" + idItem )
       .subscribe( (res) => {
         this.refreshList()
       })
