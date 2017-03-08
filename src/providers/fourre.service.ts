@@ -35,7 +35,7 @@ export class FourreService {
           .put(serverUrl + "/fourre", fourre)
           .toPromise()
           .then((res) => console.log("Saved!", res))
-          .catch((err) => console.error("Error saving", err))
+          .catch( err => console.error("Error saving", err))
     }
 
   refreshList(){
@@ -46,7 +46,7 @@ export class FourreService {
             this.fourres = res.json();
             console.log("this.fourres = ",this.fourres)
         })
-        .catch( (err) => {
+        .catch( err => {
             console.error("Could not retrieve day's fourres", err)
           })
   }
@@ -56,11 +56,13 @@ export class FourreService {
     event.stopPropagation()
     this.http
       .delete(serverUrl + "/fourre/" + idItem )
-      .subscribe( (res) => {
-        setTimeout(() => {
+      .toPromise()
+      .then( res => {
           this.refreshList()
-        }, 1500)
       })
+      .catch( err => {
+          console.error("Could not delete fourre", err)
+        })
 
   }
 }

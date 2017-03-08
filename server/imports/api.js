@@ -58,6 +58,7 @@ module.exports = {
                     console.log("foundFourre = ", foundFourre)
                     foundFourre = Object.assign(foundFourre, req.body);
                     foundFourre.save((err) => {
+                        if(err) return res.status(500).json({error:err})
                         res.status(200).end();
                     })
                 });
@@ -69,7 +70,6 @@ module.exports = {
                     if(err) return res.status(500).json({error:err})
                     res.status(200).json(deletedFourre);
                 });
-            res.status(200).end();
         }
     }
 }
