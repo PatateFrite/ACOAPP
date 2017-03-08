@@ -22,13 +22,13 @@
   <div padding>
     <ion-segment [(ngModel)]="sections">
       <ion-segment-button value="Today">
-        Today
-      </ion-segment-button>
-      <ion-segment-button value="Archives">
-        Archives
+        Forms
       </ion-segment-button>
       <ion-segment-button value="Reports">
         Reports
+      </ion-segment-button>
+      <ion-segment-button value="Archives">
+        Archives
       </ion-segment-button>
     </ion-segment>
   </div>
@@ -41,6 +41,7 @@
     <div class="cssBouttonForm">
       <button ion-button outline (click)="createFourre('A319')">A319</button>
       <button ion-button outline (click)="createFourre('A320')">A320</button>
+      <button ion-button outline (click)="createFourre('A320b')">A320b</button>
     </div>
 
     <ion-list>
@@ -55,6 +56,26 @@
           </ion-item-options>
         </ion-item-sliding>
     </ion-list>
+  </div>
+
+  <div *ngSwitchCase="'Reports'">
+    <ion-grid>
+      <ion-row wrap>
+        <ion-col width-33 *ngFor="let reportImg of reportImages">
+          <ion-card>
+            <img [src]="reportImg" />
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-footer>
+      <ion-toolbar class="centerButton">
+        <button ion-button (click)="takeReportPicture()">
+            <ion-icon name="ios-camera-outline" is-active="false"></ion-icon>
+        </button>
+      </ion-toolbar>
+    </ion-footer>
   </div>
 
   <div class="archivesSection" *ngSwitchCase="'Archives'">
@@ -88,26 +109,6 @@
     </ion-card>
 
 
-  </div>
-
-  <div *ngSwitchCase="'Reports'">
-    <ion-grid>
-      <ion-row wrap>
-        <ion-col width-33 *ngFor="let reportImg of reportImages">
-          <ion-card>
-            <img [src]="reportImg" />
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-footer>
-      <ion-toolbar class="centerButton">
-        <button ion-button (click)="takeReportPicture()">
-            <ion-icon name="ios-camera-outline" is-active="false"></ion-icon>
-        </button>
-      </ion-toolbar>
-    </ion-footer>
   </div>
 
   </div>

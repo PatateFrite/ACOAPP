@@ -222,5 +222,36 @@ ion-list.flightTimeData.list.list-md{
   margin:auto;
 }
 
+//SECTION LFC
+
+/*.lfc .PaxEtZones{
+  width: 60%;
+  margin: auto;
+}*/
+
+.cases{
+  border:1px solid $couleurbleu;
+  width: 80px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+.cases .text-input.ng-untouched.ng-pristine.ng-valid.text-input-md {
+  border: none;
+  width: 80px;
+  height: 30px;
+}
+
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+border-bottom-color: none;
+box-shadow: none;
+}
+
+// probleme ne change pas au bon endroit, bizarre
+.text-input-md {
+    /* margin: 13px 8px 13px 8px; */
+    padding: 0;
+    width: calc(100% - 8px - 8px);
+}
 
 }
