@@ -5,11 +5,16 @@ import 'rxjs/add/operator/toPromise';
 
 import { IFourre } from '../models/fourre';
 
+declare const serverUrl; // defined in index.html
+
 @Injectable()
 export class FourreService {
+<<<<<<< HEAD
 
   serverUrl: String = 'http://www.jeremythille.net:3000';
   //serverUrl: String = window.location.origin.replace(/:[0-9]{4}$/,':3000'); // <-- Hitting the local server on port 3000
+=======
+>>>>>>> 3d7303220657b2276686b8ed1d258c07070e0c72
   fourres : Array<IFourre> = [];
 
   constructor(public http: Http) {
@@ -18,7 +23,7 @@ export class FourreService {
 
   createFourre(planeType,callback){  // planeType = 319 or 320
       this.http
-        .post(this.serverUrl + "/fourre", { planeType : planeType })
+        .post(serverUrl + "/fourre", { planeType : planeType })
         .toPromise()
         .then( res => {
             console.log("Created fourre :", res.json())
@@ -32,7 +37,7 @@ export class FourreService {
 
   save(fourre){
     this.http
-          .put(this.serverUrl + "/fourre", fourre)
+          .put(serverUrl + "/fourre", fourre)
           .toPromise()
           .then((res) => console.log("Saved!", res))
           .catch((err) => console.error("Error saving", err))
@@ -40,7 +45,7 @@ export class FourreService {
 
   refreshList(){
     this.http
-      .get(this.serverUrl + "/fourre/today")
+      .get(serverUrl + "/fourre/today")
       .toPromise()
       .then( res => {
           this.fourres = res.json();
@@ -56,7 +61,7 @@ export class FourreService {
     console.log(event, idItem)
     event.stopPropagation()
     this.http
-      .delete(this.serverUrl + "/fourre" + idItem )
+      .delete(serverUrl + "/fourre" + idItem )
       .subscribe( (res) => {
         this.refreshList()
       })

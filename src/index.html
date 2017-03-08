@@ -37,8 +37,11 @@
   <script src="build/polyfills.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.slim.min.js"></script>
+  
   <script>
-    const socket = io(window.location.origin.replace(/:[0-9]{4}$/,':3000')); // <-- Hitting the local server on port 3000;
+
+    const serverUrl = 'http://www.jeremythille.net:3000' // or local --> window.location.origin.replace(/:[0-9]{4}$/,':3000');
+    const socket = io(serverUrl);
     
     socket.on('flight info changed', (data) => {
       console.log('Socket : flight info changed event', data);
