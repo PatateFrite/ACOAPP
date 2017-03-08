@@ -9,12 +9,7 @@ declare const serverUrl; // defined in index.html
 
 @Injectable()
 export class FourreService {
-<<<<<<< HEAD
 
-  serverUrl: String = 'http://www.jeremythille.net:3000';
-  //serverUrl: String = window.location.origin.replace(/:[0-9]{4}$/,':3000'); // <-- Hitting the local server on port 3000
-=======
->>>>>>> 3d7303220657b2276686b8ed1d258c07070e0c72
   fourres : Array<IFourre> = [];
 
   constructor(public http: Http) {
