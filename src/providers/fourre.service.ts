@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -12,7 +12,7 @@ export class FourreService {
 
   fourres : Array<IFourre> = [];
 
-  constructor(public http: Http, public zone: NgZone) {
+  constructor(public http: Http) {
 
   }
 
@@ -39,7 +39,6 @@ export class FourreService {
     }
 
   refreshList(){
-    this.zone.run(() => {
       this.http
         .get(serverUrl + "/fourre/today")
         .toPromise()
@@ -50,7 +49,6 @@ export class FourreService {
         .catch( (err) => {
             console.error("Could not retrieve day's fourres", err)
           })
-    })
   }
 
   deleteFourre(event, idItem){
@@ -59,7 +57,9 @@ export class FourreService {
     this.http
       .delete(serverUrl + "/fourre/" + idItem )
       .subscribe( (res) => {
-        this.refreshList()
+        setTimeout(() => {
+          this.refreshList()
+        }, 1500)
       })
 
   }
