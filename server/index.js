@@ -1,17 +1,15 @@
-const express = require('express');
-const app = express();
-const server = require('http').Server(app);
+
+const server=require('./imports/server');
+const app = server.app
+const express = server.express
+
 const bodyParser = require('body-parser');
-// const request = require('request');
 const compression = require('compression');
-// var io = require('socket.io')(server);
+
 const cors = require('cors');
 
 const api = require('./imports/api');
 const auth = require('./imports/auth');
-
-const port = 3000;
-
 
 const siteDir = __dirname.replace('server','www');
 
@@ -30,13 +28,7 @@ app
 	.put('/fourre'      , auth.authenticate, api.fourre.update)
     .delete("/fourre/:id",auth.authenticate, api.fourre.delete)
 
-/*io.on('connection', (socket) => {
-	console.log('a user connected');
-});*/
-
-server.listen(port, () => {
-	console.log("App listening on port " + port)
-})
+	.get('/flightinfo/:id', auth.authenticate, api.flightInfo)
 
 
 
