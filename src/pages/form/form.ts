@@ -25,7 +25,8 @@ export class FormPage {
   process: string = "Flight";
 
   constructor(public navCtrl: NavController,
-    private http: Http, menu: MenuController,
+    private http: Http, 
+    public menu: MenuController,
     private params: NavParams,
     private fourreService: FourreService
   ) {
