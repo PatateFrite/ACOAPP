@@ -9,11 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.16.0",
     "colour": "^0.7.1",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
     "express": "^4.14.1",
-    "mongoose": "^4.8.1"
+    "moment": "^2.17.1",
+    "mongoose": "^4.8.1",
+    "socket.io": "^1.7.3"
   }
 }

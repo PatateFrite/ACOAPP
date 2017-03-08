@@ -10,8 +10,8 @@
   "ATA":"14:00",
   "INBOUND":{
     "Flight":"1945",
-    "Destination": "MAN",
-    },
+    "Destination": "MAN"
+    }
 },
 
 {
@@ -26,8 +26,8 @@
   "ATA":"",
   "INBOUND":{
     "Flight":"1447",
-    "Destination": "LIS",
-    },
+    "Destination": "LIS"
+    }
  },
 
   {
@@ -42,6 +42,6 @@
     "ATA":"09:52",
     "INBOUND":{
       "Flight":"1405",
-      "Destination": "BCN",
-    },
+      "Destination": "BCN"
+    }
   }]

@@ -47,7 +47,7 @@
     <ion-list>
         <ion-item-sliding *ngFor="let fourre of fourreService.fourres" (click)="openFourre(fourre)">
           <ion-item>
-              {{ fourre._id }} - {{ type }} - {{ fourre.flight }} - {{ fourre.destination }} - {{ fourre.std }}
+              {{ fourre.prefix }}{{ fourre.flight ? fourre.flight : "No flight number" }} - {{ fourre.destination }} - {{ fourre.planeType }} - {{ fourre.std }}
           </ion-item>
           <ion-item-options side="right">
             <button ion-button color="danger" (click)="delete($event,fourre.id)">
