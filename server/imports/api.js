@@ -5,6 +5,7 @@ const FlightInfo = mongoose.FlightInfo;
 const moment = require('moment');
 const colour = require('colour');
 const io = require('./server').io;
+const series = require('async-series');
 
 module.exports = {
 
@@ -98,7 +99,7 @@ const flightInfoChanger = () => {
     })
     */
 
-    // console.log("\nChanging all flights infos...");
+    console.log("\nChanging all flights infos...");
     const canChange = ["position","gate","etd","ata"];
     const gates = ["A","B","C","D","E","F","G"];
 
@@ -106,38 +107,53 @@ const flightInfoChanger = () => {
         .find()
         .exec( (err,docs) => {
             if(err) return // console.log("Error finding FlightInfo".red,err);
-            // console.log(`Found ${docs.length} flights in base`)
-            for(doc of docs){
-                const toChange = canChange[Math.floor(Math.random()*canChange.length)]; // "positon", "gate", etc.
-                // console.log(`\nChanging attribute [${toChange}] on flight ${doc.flight}`)
-                switch(toChange){
-                    case "position":
-                        // console.log("Position before = ", doc.position)
-                        doc.position = Math.floor(Math.random()*80+1);
-                        // console.log("Position after = ", doc.position)
-                        break;
-                    case "gate" :
-                        // console.log("Gate before = ", doc.gate)
-                        doc.gate = gates[Math.floor(Math.random()*gates.length)] + Math.floor(Math.random()*30+1);
-                        // console.log("Gate after = ", doc.gate)
-                        break;
-                    case "etd" :
-                    case "ata" :
-                        if(!doc.etd) return // console.log("Value is null. Not updating");
-                        // console.log(`${toChange} before = `, doc[toChange])
-                        doc[toChange] = moment(doc[toChange]).add(5, 'minutes');
-                        // console.log(`${toChange} after = `, doc[toChange])
-                        break;
-                }
-                doc.save( err => {
-                    if(err) console.log("Error saving flight info".red, err);
-                    io.emit('flight info changed', doc)
-                });
+            console.log(`Found ${docs.length} flights in base`)
+            series( docs.map( doc => {
+                return callback => {
+                    const toChange = canChange[Math.floor(Math.random()*canChange.length)]; // "positon", "gate", etc.
+                    console.log(`\nChanging attribute [${toChange}] on flight ${doc.flight}`)
+                    switch(toChange){
+                        case "position":
+                            // console.log("Position before = ", doc.position)
+                            doc.position = Math.floor(Math.random()*80+1);
+                            // console.log("Position after = ", doc.position)
+                            break;
+                        case "gate" :
+                            // console.log("Gate before = ", doc.gate)
+                            doc.gate = gates[Math.floor(Math.random()*gates.length)] + Math.floor(Math.random()*30+1);
+                            // console.log("Gate after = ", doc.gate)
+                            break;
+                        case "etd" :
+                        case "ata" :
+                            if(!doc[toChange]) {
+                                console.log("Value is null. Not updating");
+                                return callback(null);
+                            }
+                            // console.log(`${toChange} before = `, doc[toChange])
+                            doc[toChange] = moment(doc[toChange]).add(5, 'minutes');
+                            // console.log(`${toChange} after = `, doc[toChange])
+                            break;
+                    }
 
-            }
+                    doc.save( err => {
+                        if(err) {
+                            console.log(`flight ${doc.flight} - Error saving flight info`.red, err);
+                            callback(err)
+                        }
+                        console.log(`flight ${doc.flight} - Emitting data`);
+                        io.sockets.emit('flight info changed', doc);
+                        callback(null)
+                    });
+                }
+            })
+            , (err, result) => {
+                if(err) console.log("Series callback error = ".red, err);
+                console.log("All flights modified successfully.".green)
+            }) // end series
+
         })
 
 }
 
 setInterval( flightInfoChanger, 15000 );
-setTimeout( flightInfoChanger, 1000 );
+setTimeout( flightInfoChanger, 3000 );
