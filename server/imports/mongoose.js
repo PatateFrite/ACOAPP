@@ -56,7 +56,32 @@ const fourreSchema = new mongoose.Schema({
 	},
 	luggageTotalWeight: {
 		type: Number
-	}
+	},
+	lfcCpt1: {
+		type: Number
+	},
+	lfcCpt3: {
+		type: Number
+	},
+	lfcCpt4: {
+		type: Number
+	},
+	lfcCpt5: {
+		type: Number
+	},
+	lfcCpt1Poids: {
+		type: Number
+	},
+	lfcCpt3Poids: {
+		type: Number
+	},
+	lfcCpt4Poids: {
+		type: Number
+	},
+	lfcCpt5Poids: {
+		type: Number
+	},
+
 
 })
 

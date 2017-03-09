@@ -254,32 +254,32 @@
             <div class="cpt1">
               <ion-item>
                 <ion-label color="primary">CPT1: </ion-label>
-                    <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1Lfc"  (ngModelChange)="save()"></ion-input>
-                    <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt1PoidsLfc"  (ngModelChange)="save()"></ion-input>
+                  <ion-input class="cases" type="number" [(ngModel)]="fourre.lfcCpt1" (ngModelChange)="save()"></ion-input>
+                  <ion-input class="cases" type="number" [(ngModel)]="fourre.lfcCpt1Poids"  (ngModelChange)="save()">{{fourre.lfcCpt1 * fourre.luggageAvgWeight}}</ion-input>
               </ion-item>
            </div>
 
            <div class="cpt3">
               <ion-item>
                 <ion-label color="primary">CPT3: </ion-label>
-                <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3Lfc"  (ngModelChange)="save()"></ion-input>
-                <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt3PoidsLfc" (ngModelChange)="save()" ></ion-input>
+                <ion-input class="cases" type="number" [(ngModel)]="fourre.lfcCpt3" (ngModelChange)="save()"></ion-input>
+                <ion-input class="cases" type="number" [(ngModel)]="fourre.lfcCpt3Poids" (ngModelChange)="save()" >{{fourre.lfcCpt3 * fourre.luggageAvgWeight}}</ion-input>
               </ion-item>
           </div>
 
           <div class="cpt4">
               <ion-item>
                 <ion-label color="primary">CPT4: </ion-label>
-                <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4Lfc"  (ngModelChange)="save()"></ion-input>
-                <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt4PoidsLfc"  (ngModelChange)="save()"></ion-input>
+                <ion-input class="cases" type="number" [(ngModel)]="fourre.lfcCpt4" (ngModelChange)="save()"></ion-input>
+                <ion-input class="cases" type="number" [(ngModel)]="fourre.lfcCpt4Poids"  (ngModelChange)="save()">{{fourre.lfcCpt4 * fourre.luggageAvgWeight}}</ion-input>
               </ion-item>
           </div>
 
           <div class="cpt5">
               <ion-item>
                 <ion-label color="primary">CPT5: </ion-label>
-                <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5Lfc"  (ngModelChange)="save()"></ion-input>
-                <ion-input class="cases" type="number" [(ngModel)]="fourre.cpt5PoidsLfc"  (ngModelChange)="save()"></ion-input>
+                <ion-input class="cases" type="number" [(ngModel)]="fourre.lfcCpt5" (ngModelChange)="save()"></ion-input>
+                <ion-input class="cases" type="number" [(ngModel)]="fourre.lfcCpt5Poids"  (ngModelChange)="save()">{{fourre.lfcCpt5 * fourre.luggageAvgWeight}}</ion-input>
               </ion-item>
           </div>
 

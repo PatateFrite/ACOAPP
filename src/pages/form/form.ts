@@ -93,4 +93,9 @@ export class FormPage {
     this.fourre.inbound = flightInfo.prefix + ' ' + flightInfo.inbound.flight + ' ' + flightInfo.inbound.destination;
     this.fourre._id = savedId;
   }
+
+  /////
+  // LFC //
+  /////
+  
 }
