@@ -53,6 +53,7 @@ export class FormPage {
           return;
         }
         this.computeFlightInfo(flight.json()[0]);
+        this.save();
       })
       .catch(err => {
         this.lastError = err;
@@ -86,15 +87,10 @@ export class FormPage {
     this.save();
     //event.target.innerHTML = new Date().getHours()+':'+ (minutes<10 ? "0"+ minutes : minutes)
   }
-  private computeFlightInfo(flightInfo: IFourre) {
-    this.fourre.destination = flightInfo.destination;
-    this.fourre.position = flightInfo.position;
-    this.fourre.gate = flightInfo.gate;
-    this.fourre.std = flightInfo.std;
-    this.fourre.etd = flightInfo.etd;
-    this.fourre.slot = flightInfo.slot;
-    this.fourre.sta = flightInfo.sta;
-    this.fourre.ata = flightInfo.ata;
-    this.fourre.inbound = flightInfo.inbound;
+  private computeFlightInfo(flightInfo) {
+    let savedId = this.fourre._id;
+    this.fourre = flightInfo;
+    this.fourre.inbound = flightInfo.prefix + ' ' + flightInfo.inbound.flight + ' ' + flightInfo.inbound.destination;
+    this.fourre._id = savedId;
   }
 }
