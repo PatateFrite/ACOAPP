@@ -134,6 +134,11 @@ ion-list.flightTimeData.list.list-md{
   padding:8px;
 }
 
+.irComplet .titresSections{
+  height: 39px;
+  width: 656px;
+}
+
 #barTime{
   height: 60px;
   background-color:$couleurbleu;
@@ -182,6 +187,7 @@ ion-list.flightTimeData.list.list-md{
 
 .cpt1, .cpt3, .cpt4, .cpt5{
   float:left;
+
 }
 
 .clear{

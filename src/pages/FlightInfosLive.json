@@ -11,7 +11,8 @@
   "INBOUND":{
     "Flight":"1945",
     "Destination": "MAN"
-    }
+  },
+  "ATD": "14:12",
 },
 
 {
@@ -27,7 +28,8 @@
   "INBOUND":{
     "Flight":"1447",
     "Destination": "LIS"
-    }
+  },
+  "ATD": "21:08",
  },
 
   {
@@ -43,5 +45,6 @@
     "INBOUND":{
       "Flight":"1405",
       "Destination": "BCN"
-    }
+    },
+    "ATD": "10:50",
   }]
