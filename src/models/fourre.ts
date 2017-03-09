@@ -18,17 +18,17 @@ export interface IFourre {
     crew?:              Array<String>;
     zones?:             Object;
     
-    luggageCount?:      Number;
-    luggageAvgWeight?:  Number;
-    luggageTotalWeight?:Number;
-    lfcCpt1:            Number;
-    lfcCpt3:            Number;
-    lfcCpt4:            Number;
-    lfcCpt5:            Number;
-    lfcCpt1Poids:       Number;
-    lfcCpt3Poids:       Number;
-    lfcCpt4Poids:       Number;
-    lfcCpt5Poids:       Number;
+    luggageCount?:      number;
+    luggageAvgWeight?:  number;
+    luggageTotalWeight?:number;
+    lfcCpt1:            number;
+    lfcCpt3:            number;
+    lfcCpt4:            number;
+    lfcCpt5:            number;
+    lfcCpt1Poids:       number;
+    lfcCpt3Poids:       number;
+    lfcCpt4Poids:       number;
+    lfcCpt5Poids:       number;
     
 
 

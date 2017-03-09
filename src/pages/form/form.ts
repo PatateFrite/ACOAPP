@@ -63,8 +63,11 @@ export class FormPage {
   }
 
   save() {
+//    if(this.lfcVerifyValues()) {
+      this.lfcVerifyValues();
       console.log("Saving... Fourre is now = ", this.fourre)
       this.fourreService.save(this.fourre);
+//    }
   }
 
 
@@ -97,5 +100,43 @@ export class FormPage {
   /////
   // LFC //
   /////
+  onLfcChanged() {
+    if(this.fourre.lfcCpt1) {
+      this.fourre.lfcCpt1Poids = this.fourre.lfcCpt1 * this.fourre.luggageAvgWeight;
+      this.fourre.lfcCpt1Poids = Math.ceil(this.fourre.lfcCpt1Poids);
+    }
+    if(this.fourre.lfcCpt3) {
+      this.fourre.lfcCpt3Poids = this.fourre.lfcCpt3 * this.fourre.luggageAvgWeight;
+      this.fourre.lfcCpt3Poids = Math.ceil(this.fourre.lfcCpt3Poids);
+    }
+    if(this.fourre.lfcCpt4) {
+      this.fourre.lfcCpt4Poids = this.fourre.lfcCpt4 * this.fourre.luggageAvgWeight;
+      this.fourre.lfcCpt4Poids = Math.ceil(this.fourre.lfcCpt4Poids);
+    }
+    if(this.fourre.lfcCpt5) {
+      this.fourre.lfcCpt5Poids = this.fourre.lfcCpt5 * this.fourre.luggageAvgWeight;
+      this.fourre.lfcCpt5Poids = Math.ceil(this.fourre.lfcCpt5Poids);
+    }
+  }
+
+  private lfcVerifyValues(): boolean {
+    this.lastError = '';
+    let TotalWeight = +this.fourre.lfcCpt1Poids + +this.fourre.lfcCpt3Poids + +this.fourre.lfcCpt4Poids + +this.fourre.lfcCpt5Poids;
+
+    // Total Weight verification
+    if( TotalWeight != this.fourre.luggageTotalWeight ) 
+    {
+      this.lastError = 'TotalWeight not equal to sum of CPTs by ' + (this.fourre.luggageTotalWeight - TotalWeight);
+      return false;
+    }
+
+    // Compatiments empty verification
+    if( this.fourre.lfcCpt1Poids <= 0 || this.fourre.lfcCpt3Poids <= 0 ||this.fourre.lfcCpt4Poids <= 0 ||this.fourre.lfcCpt5Poids <= 0  )
+    {
+      this.lastError = 'Some CPT are empty'
+      return false;
+    }
+    return true;
+  }
   
 }
