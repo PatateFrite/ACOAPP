@@ -36,7 +36,6 @@ export class ProfilPage {
 
   ionViewWillEnter(){
       this.fourreService.refreshList();
-      // this.fourres = this.fourreService.fourres; // @Patleod Inutile, on pioche directement dans le service
   }
 
   takePicture(){
@@ -81,6 +80,10 @@ export class ProfilPage {
 
   createFourre(planeType){
     this.fourreService.createFourre(planeType, this.openFourre.bind(this));
+  }
+
+  deleteFourre(event, fourreId) {
+    this.fourreService.deleteFourre(event, fourreId);
   }
 
   openFourre(fourre){

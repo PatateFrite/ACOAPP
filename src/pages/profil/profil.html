@@ -50,8 +50,8 @@
               {{ fourre.prefix }}{{ fourre.flight ? fourre.flight : "No flight number" }} - {{ fourre.destination }} - {{ fourre.planeType }} - {{ fourre.std }}
           </ion-item>
           <ion-item-options side="right">
-            <button ion-button color="danger" (click)="delete($event,fourre.id)">
-              <ion-icon name="close" item-right></ion-icon>
+            <button ion-button icon-only color="danger" (click)="deleteFourre($event,fourre._id)">
+              <ion-icon name="close"></ion-icon>
             </button>
           </ion-item-options>
         </ion-item-sliding>
