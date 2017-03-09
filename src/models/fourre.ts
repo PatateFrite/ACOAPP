@@ -20,6 +20,8 @@ export interface IFourre {
     luggageCount?:      Number;
     luggageAvgWeight?:  Number;
     luggageTotalWeight?:Number;
+
+    
 }
 
 export interface IInbound {
