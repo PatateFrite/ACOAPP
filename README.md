@@ -1,7 +1,6 @@
 <h1>ACOAPP</h1>
 
-<p>ACOAPP is a mobile app that ...
-.</p>
+<p>ACOAPP is a mobile tool app that helps Aircraft Coordinators to manage calculations and observation data more precisely on the ground.</p>
 
 <h2>To run:</h2>
 <p>npm install -g ionic</p>
@@ -10,7 +9,13 @@
 <p>ionic serve</p>
 
 
-<h3>To Do:</h3>
+<h3>Prototyping. TO DO LIST:</h3>
+<p> 1. Delete and Pop-Up alert </p>
+<a href="https://cloud.githubusercontent.com/assets/22743278/23745645/414bcb38-04b9-11e7-87fc-ceda32a6790a.png"></a>
+
+<p> 2. Process Bar </p>
+<a href="https://cloud.githubusercontent.com/assets/22743278/23745646/41511930-04b9-11e7-9665-b435bae93c16.png"></a>
+
 
 <blockquote>
   <ul>
@@ -29,4 +34,3 @@
   <ul>
   </ul>    
 </blockquote>
-
