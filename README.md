@@ -10,7 +10,8 @@
 
 
 <h3>Prototyping. TO DO LIST:</h3>
-<p> 1. Delete and Pop-Up alert <a href="https://cloud.githubusercontent.com/assets/22743278/23745645/414bcb38-04b9-11e7-87fc-ceda32a6790a.png"></a> </p>
+<p> 1. Delete and Pop-Up alert </p>
+https://cloud.githubusercontent.com/assets/22743278/23745645/414bcb38-04b9-11e7-87fc-ceda32a6790a.png 
 
 
 <p> 2. Process Bar </p>
