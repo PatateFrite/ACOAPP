@@ -140,8 +140,9 @@
 
         <ion-item>
           <ion-label color="primary">FLIGHT</ion-label>
-          <ion-input type="text" [(ngModel)]="fourre.flight" (ngModelChange)="save()"></ion-input>
+          <ion-input type="text" [(ngModel)]="fourre.flight" (ngModelChange)="onFlightChanged()"></ion-input>
         </ion-item>
+        <div id="errorFlightInfo" *ngIf="lastError">{{lastError}}</div>
 
   <!--section à déplacer-->
         <!--<ion-item>

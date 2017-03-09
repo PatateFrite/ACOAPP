@@ -65,4 +65,11 @@ export class FourreService {
         })
 
   }
+
+  flightInfos(searchFlight: String) {
+    let flightNbr = parseInt(searchFlight.replace(/[^0-9\.]/g, ''), 10);
+    return this.http
+        .get(serverUrl + "/flightinfo/" + flightNbr)
+        .toPromise()
+  }
 }

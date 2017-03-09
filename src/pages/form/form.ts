@@ -20,6 +20,7 @@ export class FormPage {
   private fourre: IFourre;
   private timeoutSave: any = null;
   public currentTimeData= new Object;
+  public lastError: String;
 
   type: any = localStorage.getItem("planeType")
   process: string = "Flight";
@@ -40,15 +41,29 @@ export class FormPage {
     if (this.params.data.id) this.mode = "edit";
   }
 
-
-  save() {
+  onFlightChanged() {
     // Debouncing
+    this.lastError = '';
     clearTimeout(this.timeoutSave);
     this.timeoutSave = setTimeout( ()=>{
+      this.fourreService.flightInfos(this.fourre.flight)
+      .then((flight) => {
+        if(!flight || !flight.json()[0]) {
+          this.lastError = 'Flight not found !';
+          return;
+        }
+        this.computeFlightInfo(flight.json()[0]);
+      })
+      .catch(err => {
+        this.lastError = err;
+        console.log('FLightInfo %s error : ', this.fourre.flight, err)
+      })
+    }, 1000)
+  }
+
+  save() {
       console.log("Saving... Fourre is now = ", this.fourre)
       this.fourreService.save(this.fourre);
-    }, 1000)
-
   }
 
 
@@ -71,5 +86,15 @@ export class FormPage {
     this.save();
     //event.target.innerHTML = new Date().getHours()+':'+ (minutes<10 ? "0"+ minutes : minutes)
   }
-
+  private computeFlightInfo(flightInfo: IFourre) {
+    this.fourre.destination = flightInfo.destination;
+    this.fourre.position = flightInfo.position;
+    this.fourre.gate = flightInfo.gate;
+    this.fourre.std = flightInfo.std;
+    this.fourre.etd = flightInfo.etd;
+    this.fourre.slot = flightInfo.slot;
+    this.fourre.sta = flightInfo.sta;
+    this.fourre.ata = flightInfo.ata;
+    this.fourre.inbound = flightInfo.inbound;
+  }
 }
