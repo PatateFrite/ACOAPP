@@ -1,3 +1,5 @@
+//GENERAL
+
 page-form {
 
   ion-navbar{
@@ -16,6 +18,7 @@ page-form {
   .segment-md .segment-button {
     height: auto!important;
     border: none;
+    color: $couleurorange;
   }
 
   .item-md.item-block .item-inner{
@@ -181,27 +184,78 @@ ion-list.flightTimeData.list.list-md{
   height:20px;
 }
 
+
 // .cpt .item-block.item.item-md.item-input.ng-untouched.ng-pristine.ng-valid.item-multiple-inputs{
 //   float:left;
 // }
 
-.cpt1, .cpt3, .cpt4, .cpt5{
-  float:left;
 
+//REPARTITION SOUTE
+
+.soute{
+ height: 100px;
+}
+
+.ligneTxtCpt ul{
+  list-style-type: none
+}
+
+.ligneTxtCpt li{
+  float: left;
+  padding-right: 40px;
+}
+
+.row1Cpt1, .row2Cpt3, .row3Cpt4, .row4Cpt5{
+  float:left;
+  width: 25%;
+  border-right: 1px solid $couleurbleu;
+}
+
+//Assistances
+
+// .assCss{
+//   display:inline-block;
+//   width:400px;
+// }
+
+.WCHC, .WCHS, .WCHR, .DEAF, .BLND{
+  float:left;
+  width:20%;
+  border-right: 1px solid $couleurbleu;
+}
+
+.assCSS .input-wrapper{
+  font-size:10px;
+}
+
+//GENERAL ET CASES INPUT
+
+.cases{
+  float:left;
+  border:1px solid $couleurbleu;
+  width: 60px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+ion-col{
+  padding-left: 20px;
+}
+
+ion-item .casesCPT{
+  border: 1px solid $couleurbleu;
+  width:50px;
+  height: 50px;
+  padding-right:10px;
 }
 
 .clear{
   clear:both;
 }
-.assCss{
-  display:inline-block;
-  width:400px;
-}
+
 
 .irComplet{
   width:800px;
-
-
 }
 .block1{
   width:130px;
@@ -230,17 +284,12 @@ ion-list.flightTimeData.list.list-md{
 
 //SECTION LFC
 
-/*.lfc .PaxEtZones{
-  width: 60%;
-  margin: auto;
-}*/
 
-.cases{
-  border:1px solid $couleurbleu;
-  width: 80px;
-  height: 30px;
-  margin-right: 20px;
+.zoneA, .zoneB, .zoneC{
+  float: left;
 }
+
+
 
 .cases .text-input.ng-untouched.ng-pristine.ng-valid.text-input-md {
   border: none;
@@ -260,4 +309,18 @@ box-shadow: none;
     width: calc(100% - 8px - 8px);
 }
 
+.cases .text-input-md{
+  border-bottom: none;
+  margin:0px;
+  padding-left: 20px;
+}
+
+.lfcComplet .input-wrapper{
+  font-size: 16px;
+}
+
+.lfc p{
+  color: $couleurbleu;
+  font-size:14px;
+}
 }
