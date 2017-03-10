@@ -179,9 +179,9 @@ ion-list.flightTimeData.list.list-md{
   color:$couleurgrisF;
 }
 .cases .text-input.ng-untouched.ng-pristine.ng-valid.text-input-md,
-.cases .div {
+.cases div {
   border:1px solid $couleurgrisF;
-  width:60px;
+  width:40px;
   height:20px;
 }
 
@@ -236,7 +236,7 @@ ion-list.flightTimeData.list.list-md{
   border:1px solid $couleurbleu;
   width: 60px;
   height: 30px;
-  margin-right: 20px;
+  margin-right: 67px;
 }
 
 ion-col{
@@ -289,10 +289,10 @@ ion-item .casesCPT{
   float: left;
 }
 
-.cases .text-input.ng-untouched.ng-pristine.ng-valid.text-input-md {
+.cases .text-input.ng-untouched.ng-pristine.ng-valid.text-input-md{
   border: none;
   width: 80px;
-  height: 30px;
+  height: 40px;
 }
 
 .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
@@ -310,7 +310,7 @@ box-shadow: none;
 .cases .text-input-md{
   border-bottom: none;
   margin:0px;
-  padding-left: 20px;
+  //padding-left: 20px;
 }
 
 .lfcComplet .input-wrapper{
