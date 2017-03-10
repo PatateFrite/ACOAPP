@@ -21,6 +21,9 @@ export interface IFourre {
     luggageCount?:      number;
     luggageAvgWeight?:  number;
     luggageTotalWeight?:number;
+    zonesLfcA:          number;
+    zonesLfcB:          number;
+    zonesLfcC:          number;
     lfcCpt1:            number;
     lfcCpt3:            number;
     lfcCpt4:            number;

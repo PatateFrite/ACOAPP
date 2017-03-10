@@ -128,19 +128,19 @@ export class FormPage {
     // Total Weight verification
     if( TotalWeight != this.fourre.luggageTotalWeight ) 
     {
-      this.lastError = 'TotalWeight not equal to sum of CPTs by ' + (this.fourre.luggageTotalWeight - TotalWeight);
+      this.lastError = 'Le poid total bagages ne correspond pas au poids total des soutes (CPT), erreur de ' + (this.fourre.luggageTotalWeight - TotalWeight);
       return false;
     }
 
     // Compatiments empty verification
     if( this.fourre.lfcCpt1Poids <= 0 || this.fourre.lfcCpt3Poids <= 0 ||this.fourre.lfcCpt4Poids <= 0 ||this.fourre.lfcCpt5Poids <= 0  )
     {
-      this.lastError = 'Some CPT are empty'
+      this.lastError = 'Des compartiments à bagages sont vides !'
       return false;
     }
     // sum compartiments must be equal to total bagages
     if( this.fourre.lfcCpt1 + this.fourre.lfcCpt3 + this.fourre.lfcCpt4 + this.fourre.lfcCpt5 != this.fourre.luggageCount){
-      this.lastError = 'Some CPT are empty'
+      this.lastError = 'Total Bagages en soute ne correspond pas au Total des bagages du vol !'
       return false;
     }
     return true;
