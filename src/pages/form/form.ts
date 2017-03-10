@@ -40,6 +40,32 @@ export class FormPage {
     }
 
     if (this.params.data.id) this.mode = "edit";
+
+    // initialize cptx to 0
+    if(typeof this.fourre.lfcCpt1 == 'undefined'){
+      this.fourre.lfcCpt1 = 0;
+    }
+    if(typeof this.fourre.lfcCpt3 == 'undefined'){
+      this.fourre.lfcCpt3 = 0;
+    }
+    if(typeof this.fourre.lfcCpt4 == 'undefined'){
+      this.fourre.lfcCpt4 = 0;
+    }
+    if(typeof this.fourre.lfcCpt5 == 'undefined'){
+      this.fourre.lfcCpt5 = 0;
+    }
+    if(typeof this.fourre.lfcCpt1Poids == 'undefined'){
+      this.fourre.lfcCpt1Poids = 0;
+    }
+    if(typeof this.fourre.lfcCpt3Poids == 'undefined'){
+      this.fourre.lfcCpt3Poids = 0;
+    }
+    if(typeof this.fourre.lfcCpt4Poids == 'undefined'){
+      this.fourre.lfcCpt4Poids = 0;
+    }
+    if(typeof this.fourre.lfcCpt5Poids == 'undefined'){
+      this.fourre.lfcCpt5Poids = 0;
+    }
   }
 
   onFlightChanged() {
@@ -124,7 +150,7 @@ export class FormPage {
 
   private lfcVerifyValues(): boolean {
     this.lastError = '';
-    let TotalWeight = +this.fourre.lfcCpt1Poids + +this.fourre.lfcCpt3Poids + +this.fourre.lfcCpt4Poids + +this.fourre.lfcCpt5Poids;
+    let TotalWeight = this.fourre.lfcCpt1Poids + this.fourre.lfcCpt3Poids + this.fourre.lfcCpt4Poids + this.fourre.lfcCpt5Poids;
 
     // Total Weight verification
     if( TotalWeight != this.fourre.luggageTotalWeight ) 
