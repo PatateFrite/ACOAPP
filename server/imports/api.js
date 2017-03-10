@@ -164,5 +164,5 @@ const flightInfoChanger = () => {
 
 }
 
-setInterval( flightInfoChanger, 15000 );
+setInterval( flightInfoChanger, 30000 );
 setTimeout( flightInfoChanger, 3000 );
