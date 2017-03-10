@@ -11,6 +11,8 @@ import {LoginPage} from '../login/login';
 import { FourreService } from '../../providers/fourre.service';
 // import { IFourre } from '../../models/fourre';
 
+import { NotificationsService } from 'angular2-notifications';
+
 declare var localStorage: any;
 
 @Component({
@@ -29,7 +31,11 @@ export class ProfilPage {
 
   constructor(public navCtrl: NavController,
               private http: Http,
-              private fourreService : FourreService) {
+              private fourreService : FourreService
+              // , private notifService: NotificationsService
+              ) {
+
+       // notifService.success("Test title", "test content");
 
   }
 

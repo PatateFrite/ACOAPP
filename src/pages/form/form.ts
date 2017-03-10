@@ -64,11 +64,12 @@ export class FormPage {
   }
 
   save() {
-//    if(this.lfcVerifyValues()) {
-      this.lfcVerifyValues();
-      console.log("Saving... Fourre is now = ", this.fourre)
-      this.fourreService.save(this.fourre);
-//    }
+    //    if(this.lfcVerifyValues()) {
+          console.log("save()")
+          this.lfcVerifyValues();
+          console.log("Saving... Fourre is now = ", this.fourre)
+          this.fourreService.save(this.fourre);
+    //    }
   }
 
 

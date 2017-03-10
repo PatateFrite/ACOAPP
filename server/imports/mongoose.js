@@ -20,6 +20,7 @@ const fourreSchema = new mongoose.Schema({
 	gate				: String,
 	crew				: [String],
 	zones				: Object,
+
 	luggageCount		: Number,
 	luggageAvgWeight	: Number,
 	luggageTotalWeight	: Number,
@@ -31,6 +32,10 @@ const fourreSchema = new mongoose.Schema({
 	lfcCpt3Poids		: Number,
 	lfcCpt4Poids		: Number,
 	lfcCpt5Poids		: Number,
+
+	zonesLfcA			: Number,
+	zonesLfcB			: Number,
+	zonesLfcC			: Number
 })
 
 const Fourre = mongoose.model('fourre', fourreSchema);

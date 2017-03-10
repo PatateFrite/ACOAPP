@@ -52,15 +52,20 @@ module.exports = {
         },
 
         update : (req,res) => {
+
+            // console.log("\nUpdate() - Passed fourre to save = ", req.body)
+
             Fourre.findById(req.body._id)
                 .exec( (err,foundFourre) => {
                     if(err) return res.status(500).json({error:err});
-                    console.log("\nAPI update - foundFourre = ", foundFourre)
+                    // console.log("\nAPI update - foundFourre = ", foundFourre)
                     if(!foundFourre || !foundFourre._id) {
-                        console.log(`Did not find any fourre to update with _id=${req.body._id}`.red);
+                        // console.log(`Did not find any fourre to update with _id=${req.body._id}`.red);
                         return res.status(404).json({error:`Did not find any fourre to update with _id=${req.body._id}`});
                     }
-                     Object.assign(foundFourre, req.body);
+
+                    foundFourre = Object.assign(foundFourre, req.body)
+                    // console.log("\nToSave = ", foundFourre)
                     foundFourre.save((err) => {
                         if(err) return res.status(500).json({error:err})
                         res.status(200).end();
@@ -103,7 +108,7 @@ const flightInfoChanger = () => {
     })
     */
 
-    console.log("\nChanging all flights infos...");
+    // console.log("\nChanging all flights infos...");
     const canChange = ["position","gate","etd","ata"];
     const gates = ["A","B","C","D","E","F","G"];
 
@@ -111,11 +116,11 @@ const flightInfoChanger = () => {
         .find()
         .exec( (err,docs) => {
             if(err) return // console.log("Error finding FlightInfo".red,err);
-            console.log(`Found ${docs.length} flights in base`)
+            // console.log(`Found ${docs.length} flights in base`)
             series( docs.map( doc => {
                 return callback => {
                     const toChange = canChange[Math.floor(Math.random()*canChange.length)]; // "positon", "gate", etc.
-                    console.log(`\nChanging attribute [${toChange}] on flight ${doc.flight}`)
+                    // console.log(`\nChanging attribute [${toChange}] on flight ${doc.flight}`)
                     switch(toChange){
                         case "position":
                             // console.log("Position before = ", doc.position)
@@ -130,7 +135,7 @@ const flightInfoChanger = () => {
                         case "etd" :
                         case "ata" :
                             if(!doc[toChange]) {
-                                console.log("Value is null. Not updating");
+                                // console.log("Value is null. Not updating");
                                 return callback(null);
                             }
                             // console.log(`${toChange} before = `, doc[toChange])
@@ -141,10 +146,10 @@ const flightInfoChanger = () => {
 
                     doc.save( err => {
                         if(err) {
-                            console.log(`flight ${doc.flight} - Error saving flight info`.red, err);
+                            // console.log(`flight ${doc.flight} - Error saving flight info`.red, err);
                             callback(err)
                         }
-                        console.log(`flight ${doc.flight} - Emitting data`);
+                        // console.log(`flight ${doc.flight} - Emitting data`);
                         io.sockets.emit('flight info changed', doc);
                         callback(null)
                     });
@@ -152,7 +157,7 @@ const flightInfoChanger = () => {
             })
             , (err, result) => {
                 if(err) console.log("Series callback error = ".red, err);
-                console.log("All flights modified successfully.".green)
+                // console.log("All flights modified successfully.".green)
             }) // end series
 
         })
