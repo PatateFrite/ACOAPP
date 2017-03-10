@@ -55,8 +55,12 @@ module.exports = {
             Fourre.findById(req.body._id)
                 .exec( (err,foundFourre) => {
                     if(err) return res.status(500).json({error:err});
-                    console.log("foundFourre = ", foundFourre)
-                    foundFourre = Object.assign(foundFourre, req.body);
+                    console.log("\nAPI update - foundFourre = ", foundFourre)
+                    if(!foundFourre || !foundFourre._id) {
+                        console.log(`Did not find any fourre to update with _id=${req.body._id}`.red);
+                        return res.status(404).json({error:`Did not find any fourre to update with _id=${req.body._id}`});
+                    }
+                     Object.assign(foundFourre, req.body);
                     foundFourre.save((err) => {
                         if(err) return res.status(500).json({error:err})
                         res.status(200).end();

@@ -6,88 +6,34 @@ const fourreSchema = new mongoose.Schema({
 		type: Date,
 		default: Date.now
 	},
-	planeType: { // "type" is a reserved word
-		type: String
-	},
-	std: {
-		type: String
-	},
-	etd: {
-		type: String
-	},
-	sta: {
-		type: String
-	},
-	ata: {
-		type: String
-	},
-	slot: {
-		type: String
-	},
-	inbound: {
-		type: String
-	},
-	time: {
-		type: Object
-	},
-	flight: {
-		type: String
-	},
-	destination: {
-		type: String
-	},
-	position: {
-		type: String
-	},
-	gate: {
-		type: String
-	},
-	crew: {
-		type: [String]
-	},
-	zones: {
-		type: Object
-	},
-	luggageCount: {
-		type: Number
-	},
-	luggageAvgWeight: {
-		type: Number
-	},
-	luggageTotalWeight: {
-		type: Number
-	},
-	lfcCpt1: {
-		type: Number
-	},
-	lfcCpt3: {
-		type: Number
-	},
-	lfcCpt4: {
-		type: Number
-	},
-	lfcCpt5: {
-		type: Number
-	},
-	lfcCpt1Poids: {
-		type: Number
-	},
-	lfcCpt3Poids: {
-		type: Number
-	},
-	lfcCpt4Poids: {
-		type: Number
-	},
-	lfcCpt5Poids: {
-		type: Number
-	},
-
-
+	planeType: String, // "type" is a reserved word,
+	std					: String, // Should be Date
+	etd					: String, // Should be Date
+	sta					: String, // Should be Date
+	ata					: String, // Should be Date
+	slot				: String, // Should be [Date]
+	inbound				: String, // Should be Object{ flight, destination }
+	time				: String,
+	flight				: String,
+	destination			: String,
+	position			: String,
+	gate				: String,
+	crew				: [String],
+	zones				: Object,
+	luggageCount		: Number,
+	luggageAvgWeight	: Number,
+	luggageTotalWeight	: Number,
+	lfcCpt1				: Number,
+	lfcCpt3				: Number,
+	lfcCpt4				: Number,
+	lfcCpt5				: Number,
+	lfcCpt1Poids		: Number,
+	lfcCpt3Poids		: Number,
+	lfcCpt4Poids		: Number,
+	lfcCpt5Poids		: Number,
 })
 
 const Fourre = mongoose.model('fourre', fourreSchema);
-
-
 
 const flightInfoSchema = new mongoose.Schema({
 	"flight"		: String,
@@ -97,7 +43,7 @@ const flightInfoSchema = new mongoose.Schema({
 	"gate"			: String,
 	"std"			: Date,
 	"etd"			: Date,
-	"atc"			: [Date],
+	"atc"			: [Date], // = Slot
 	"sta"			: Date,
 	"ata"			: Date,
 	"inbound"		: new mongoose.Schema({

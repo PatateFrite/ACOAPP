@@ -8,6 +8,7 @@ import { IFourre } from '../../models/fourre';
 import { FourreService } from '../../providers/fourre.service';
 
 declare var localStorage: any;
+declare var moment: any;
 
 @Component({
   selector: 'page-form',
@@ -73,6 +74,8 @@ export class FormPage {
 
   getHeure(event) {
     console.log('getheure->', event)
+    
+    /*
     let minutes: number;
 
     if (new Date().getMinutes() < 10) {
@@ -81,11 +84,9 @@ export class FormPage {
     else {
       minutes = new Date().getMinutes();
     }
-
+    */
     console.log(event.target.id)
-
-    this.currentTimeData[event.target.id] = new Date().getHours() + ':' + (minutes < 10 ? "0" + minutes : minutes);
-
+    this.currentTimeData[event.target.id] = moment().format('HH:mm'); // new Date().getHours() + ':' + (minutes < 10 ? "0" + minutes : minutes);
     this.fourre.time = this.currentTimeData;
     this.save();
     //event.target.innerHTML = new Date().getHours()+':'+ (minutes<10 ? "0"+ minutes : minutes)
