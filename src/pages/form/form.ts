@@ -157,7 +157,7 @@ export class FormPage {
 			return false;
 		}
 		// sum compartiments must be equal to total bagages
-		if (this.fourre.lfcCpt1 + this.fourre.lfcCpt3 + this.fourre.lfcCpt4 + this.fourre.lfcCpt5 != this.fourre.luggageCount) {
+		if (+this.fourre.lfcCpt1 + +this.fourre.lfcCpt3 + +this.fourre.lfcCpt4 + +this.fourre.lfcCpt5 != this.fourre.luggageCount) {
 			this.lastError = 'Total Bagages en soute ne correspond pas au Total des bagages du vol !'
 			return false;
 		}
