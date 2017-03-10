@@ -78,8 +78,6 @@ $roboto: 'Roboto', sans-serif;
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/v2/ionicons/
 
-
-
 $ionicons-font-path: "../assets/fonts";
 @import "ionicons";
 
@@ -94,3 +92,23 @@ $checkbox-ios-icon-checkmark-width:2px;
 
 @import "roboto";
 @import "noto-sans";
+
+// Toast
+  $toast-width:	100%;
+  .toastLFC {
+    margin-top: 210px;
+    div .toast-message {
+      color: white !important;
+      background-color: orange !important;
+    }
+    .toast-button {
+      //color: darkorange !important;
+      background-color: darkorange !important;
+    }
+    .toast-container {
+      background-color: darkorange;
+    }
+    .button-inner {
+      color: white;
+    }
+  }

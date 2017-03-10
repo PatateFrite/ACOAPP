@@ -1,12 +1,11 @@
 import { Component, NgZone } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { NavController, MenuController, NavParams } from 'ionic-angular';
+import { NavController, MenuController, NavParams, ToastController } from 'ionic-angular';
 
 import { Routes } from '../../app/app.routes';
 import { IFourre } from '../../models/fourre';
 
 import { FourreService } from '../../providers/fourre.service';
-import { NotificationsService } from 'angular2-notifications';
 
 declare var localStorage: any;
 declare var moment: any;
@@ -33,7 +32,7 @@ export class FormPage {
 		public menu: MenuController,
 		private params: NavParams,
 		private fourreService: FourreService,
-		private notifService: NotificationsService,
+		public toastCtrl: ToastController,
 		private zone: NgZone
 	) {
 		menu.enable(true);
@@ -181,12 +180,21 @@ export class FormPage {
 		}
 
 
-		this.notifService.info(`${newInfo.what.toUpperCase()} has changed`, `Before = ${before} - Now = ${after}`, {
-			timeOut: 8000,
-			showProgressBar: true,
-			preventDuplicates: true
+		// this.notifService.info(`${newInfo.what.toUpperCase()} has changed`, `Before = ${before} - Now = ${after}`, {
+		// 	timeOut: 8000,
+		// 	showProgressBar: true,
+		// 	preventDuplicates: true
+		// });
+		// this.zone.run(() => { })
+		let toast = this.toastCtrl.create({
+			message: `${newInfo.what.toUpperCase()} has changed Before = ${before} - Now = ${after}`,
+			duration: 8000,
+			position: 'top',
+			cssClass: 'toastLFC',
+			showCloseButton: true,
+			closeButtonText: 'Fermer'
 		});
-		this.zone.run(() => { })
+		toast.present();
 
 		this.computeFlightInfo(newInfo.doc);
 	}

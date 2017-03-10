@@ -11,7 +11,7 @@ import { FormPage } from '../pages/form/form';
 import { FourreService } from '../providers/fourre.service'
 
 // EXTERNAL MODULES / PLUGINS
-import { SimpleNotificationsModule } from 'angular2-notifications'
+//import { SimpleNotificationsModule } from 'angular2-notifications'
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications'
       tabsPlacement: 'top',
       mode: 'md',
     })
-    , SimpleNotificationsModule.forRoot()
+    //, SimpleNotificationsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
