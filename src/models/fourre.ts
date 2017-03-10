@@ -29,10 +29,6 @@ export interface IFourre {
     lfcCpt3Poids:       number;
     lfcCpt4Poids:       number;
     lfcCpt5Poids:       number;
-    
-
-
-
 }
 
 export interface IInbound {

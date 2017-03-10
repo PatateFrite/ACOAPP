@@ -118,6 +118,7 @@ export class FormPage {
       this.fourre.lfcCpt5Poids = this.fourre.lfcCpt5 * this.fourre.luggageAvgWeight;
       this.fourre.lfcCpt5Poids = Math.ceil(this.fourre.lfcCpt5Poids);
     }
+    this.save();
   }
 
   private lfcVerifyValues(): boolean {
@@ -134,6 +135,11 @@ export class FormPage {
     // Compatiments empty verification
     if( this.fourre.lfcCpt1Poids <= 0 || this.fourre.lfcCpt3Poids <= 0 ||this.fourre.lfcCpt4Poids <= 0 ||this.fourre.lfcCpt5Poids <= 0  )
     {
+      this.lastError = 'Some CPT are empty'
+      return false;
+    }
+    // sum compartiments must be equal to total bagages
+    if( this.fourre.lfcCpt1 + this.fourre.lfcCpt3 + this.fourre.lfcCpt4 + this.fourre.lfcCpt5 != this.fourre.luggageCount){
       this.lastError = 'Some CPT are empty'
       return false;
     }
