@@ -11,6 +11,7 @@ declare const serverUrl; // defined in index.html
 export class FourreService {
 
   fourres : Array<IFourre> = [];
+  saveTimeout : any = null;
 
   constructor(public http: Http) {
 
@@ -31,12 +32,16 @@ export class FourreService {
   }
 
   save(fourre){
-    this.http
-          .put(serverUrl + "/fourre", fourre)
-          .toPromise()
-          .then((res) => console.log("Saved!", res))
-          .catch( err => console.error("Error saving", err))
-    }
+    clearTimeout(this.saveTimeout);
+
+    this.saveTimeout = setTimeout( () =>{
+      this.http
+            .put(serverUrl + "/fourre", fourre)
+            .toPromise()
+            .then((res) => console.log("Saved!", res))
+            .catch( err => console.error("Error saving", err))
+    }, 500);
+  }
 
   refreshList(){
       this.http

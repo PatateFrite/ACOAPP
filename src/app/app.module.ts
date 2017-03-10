@@ -10,6 +10,9 @@ import { FormPage } from '../pages/form/form';
 // SERVICES / PROVIDERS
 import { FourreService } from '../providers/fourre.service'
 
+// EXTERNAL MODULES / PLUGINS
+import { SimpleNotificationsModule } from 'angular2-notifications'
+
 @NgModule({
   declarations: [
     MyApp,
@@ -23,6 +26,7 @@ import { FourreService } from '../providers/fourre.service'
       tabsPlacement: 'top',
       mode: 'md',
     })
+    , SimpleNotificationsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

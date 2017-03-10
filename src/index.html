@@ -37,16 +37,13 @@
   <script src="build/polyfills.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
   
   <script>
     // const serverUrl = 'http://www.jeremythille.net:3000';
     const serverUrl = window.location.origin.replace(/:[0-9]{4}$/,':3000'); // Local
     console.info("Connecting to server : "+serverUrl)
     const socket = io(serverUrl);
-    
-    socket.on('flight info changed', (data) => {
-      console.log('Socket : flight info changed event', data);
-    });
   </script>
 
   <!-- The bundle js is generated during the build process -->

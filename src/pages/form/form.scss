@@ -178,7 +178,8 @@ ion-list.flightTimeData.list.list-md{
 .label.label-md.label-md-primary{
   color:$couleurgrisF;
 }
-.cases .text-input.ng-untouched.ng-pristine.ng-valid.text-input-md{
+.cases .text-input.ng-untouched.ng-pristine.ng-valid.text-input-md,
+.cases .div {
   border:1px solid $couleurgrisF;
   width:60px;
   height:20px;

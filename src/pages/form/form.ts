@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { NavController, MenuController, NavParams } from 'ionic-angular';
 
@@ -6,12 +6,15 @@ import { Routes } from '../../app/app.routes';
 import { IFourre } from '../../models/fourre';
 
 import { FourreService } from '../../providers/fourre.service';
+import { NotificationsService } from 'angular2-notifications';
 
 declare var localStorage: any;
+declare var moment: any;
+declare var socket: any;
 
 @Component({
-  selector: 'page-form',
-  templateUrl: 'form.html'
+	selector: 'page-form',
+	templateUrl: 'form.html'
 })
 export class FormPage {
 
@@ -29,7 +32,9 @@ export class FormPage {
     private http: Http, 
     public menu: MenuController,
     private params: NavParams,
-    private fourreService: FourreService
+    private fourreService: FourreService,
+    private notifService: NotificationsService,
+		private zone: NgZone
   ) {
     menu.enable(true);
     this.fourre = this.params.data;
@@ -39,6 +44,34 @@ export class FormPage {
     }
 
     if (this.params.data.id) this.mode = "edit";
+
+    // initialize cptx to 0
+    if(typeof this.fourre.lfcCpt1 == 'undefined'){
+      this.fourre.lfcCpt1 = 0;
+    }
+    if(typeof this.fourre.lfcCpt3 == 'undefined'){
+      this.fourre.lfcCpt3 = 0;
+    }
+    if(typeof this.fourre.lfcCpt4 == 'undefined'){
+      this.fourre.lfcCpt4 = 0;
+    }
+    if(typeof this.fourre.lfcCpt5 == 'undefined'){
+      this.fourre.lfcCpt5 = 0;
+    }
+    if(typeof this.fourre.lfcCpt1Poids == 'undefined'){
+      this.fourre.lfcCpt1Poids = 0;
+    }
+    if(typeof this.fourre.lfcCpt3Poids == 'undefined'){
+      this.fourre.lfcCpt3Poids = 0;
+    }
+    if(typeof this.fourre.lfcCpt4Poids == 'undefined'){
+      this.fourre.lfcCpt4Poids = 0;
+    }
+    if(typeof this.fourre.lfcCpt5Poids == 'undefined'){
+      this.fourre.lfcCpt5Poids = 0;
+    }
+
+    socket.on('flight info changed', this.flightInfoChanged.bind(this));
   }
 
   onFlightChanged() {
@@ -63,16 +96,19 @@ export class FormPage {
   }
 
   save() {
-//    if(this.lfcVerifyValues()) {
-      this.lfcVerifyValues();
-      console.log("Saving... Fourre is now = ", this.fourre)
-      this.fourreService.save(this.fourre);
-//    }
+    //    if(this.lfcVerifyValues()) {
+          console.log("save()")
+          this.lfcVerifyValues();
+          console.log("Saving... Fourre is now = ", this.fourre)
+          this.fourreService.save(this.fourre);
+    //    }
   }
 
 
   getHeure(event) {
     console.log('getheure->', event)
+    
+    /*
     let minutes: number;
 
     if (new Date().getMinutes() < 10) {
@@ -81,11 +117,9 @@ export class FormPage {
     else {
       minutes = new Date().getMinutes();
     }
-
+    */
     console.log(event.target.id)
-
-    this.currentTimeData[event.target.id] = new Date().getHours() + ':' + (minutes < 10 ? "0" + minutes : minutes);
-
+    this.currentTimeData[event.target.id] = moment().format('HH:mm'); // new Date().getHours() + ':' + (minutes < 10 ? "0" + minutes : minutes);
     this.fourre.time = this.currentTimeData;
     this.save();
     //event.target.innerHTML = new Date().getHours()+':'+ (minutes<10 ? "0"+ minutes : minutes)
@@ -117,26 +151,54 @@ export class FormPage {
       this.fourre.lfcCpt5Poids = this.fourre.lfcCpt5 * this.fourre.luggageAvgWeight;
       this.fourre.lfcCpt5Poids = Math.ceil(this.fourre.lfcCpt5Poids);
     }
+    this.save();
   }
 
   private lfcVerifyValues(): boolean {
     this.lastError = '';
-    let TotalWeight = +this.fourre.lfcCpt1Poids + +this.fourre.lfcCpt3Poids + +this.fourre.lfcCpt4Poids + +this.fourre.lfcCpt5Poids;
+    let TotalWeight = this.fourre.lfcCpt1Poids + this.fourre.lfcCpt3Poids + this.fourre.lfcCpt4Poids + this.fourre.lfcCpt5Poids;
 
     // Total Weight verification
     if( TotalWeight != this.fourre.luggageTotalWeight ) 
     {
-      this.lastError = 'TotalWeight not equal to sum of CPTs by ' + (this.fourre.luggageTotalWeight - TotalWeight);
+      this.lastError = 'Le poid total bagages ne correspond pas au poids total des soutes (CPT), erreur de ' + (this.fourre.luggageTotalWeight - TotalWeight);
       return false;
     }
 
     // Compatiments empty verification
     if( this.fourre.lfcCpt1Poids <= 0 || this.fourre.lfcCpt3Poids <= 0 ||this.fourre.lfcCpt4Poids <= 0 ||this.fourre.lfcCpt5Poids <= 0  )
     {
-      this.lastError = 'Some CPT are empty'
+      this.lastError = 'Des compartiments à bagages sont vides !'
+      return false;
+    }
+    // sum compartiments must be equal to total bagages
+    if( this.fourre.lfcCpt1 + this.fourre.lfcCpt3 + this.fourre.lfcCpt4 + this.fourre.lfcCpt5 != this.fourre.luggageCount){
+      this.lastError = 'Total Bagages en soute ne correspond pas au Total des bagages du vol !'
       return false;
     }
     return true;
   }
+
+  flightInfoChanged(newInfo) {
+		if(newInfo.doc.flight !== this.fourre.flight) return;
+
+
+		let before = this.fourre[newInfo.what];
+		let after = newInfo.doc[newInfo.what];
+
+		if(["std", "etd", "sta", "ata"].indexOf(newInfo.what)!==-1){
+			before = moment(before).format('HH:mm');
+			after = moment(after).format('HH:mm');
+		}
+
+
+		this.notifService.info(`${newInfo.what.toUpperCase()} has changed`, `Before = ${before} - Now = ${after}`,{
+			timeOut : 8000,
+			showProgressBar : true
+		});
+		this.zone.run(() => { })
+
+		this.computeFlightInfo(newInfo.doc);
+	}
   
 }
