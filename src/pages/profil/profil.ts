@@ -9,9 +9,9 @@ import { Http} from '@angular/http';
 import {LoginPage} from '../login/login';
 
 import { FourreService } from '../../providers/fourre.service';
-// import { IFourre } from '../../models/fourre';
+import { IFourre } from '../../models/fourre';
 
-import { NotificationsService } from 'angular2-notifications';
+// import { NotificationsService } from 'angular2-notifications';
 
 declare var localStorage: any;
 
@@ -22,8 +22,6 @@ declare var localStorage: any;
 })
 export class ProfilPage {
 
-  // fourres: Array<IFourre> = new Array<IFourre>();  // @Patleod Inutile, on pioche directement dans le service
-
   base64Image:any;
   reportImages:Array<string> = [];
 
@@ -32,10 +30,13 @@ export class ProfilPage {
   constructor(public navCtrl: NavController,
               private http: Http,
               private fourreService : FourreService
-              // , private notifService: NotificationsService
+              //, private notifService: NotificationsService
               ) {
 
-       // notifService.success("Test title", "test content");
+       /*notifService.success("Test title", "test content", {
+         timeOut : 2000,
+         showProgressBar : true
+       });*/
 
   }
 

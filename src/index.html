@@ -44,10 +44,6 @@
     const serverUrl = window.location.origin.replace(/:[0-9]{4}$/,':3000'); // Local
     console.info("Connecting to server : "+serverUrl)
     const socket = io(serverUrl);
-    
-    socket.on('flight info changed', (data) => {
-      // console.log('Socket : flight info changed event', data);
-    });
   </script>
 
   <!-- The bundle js is generated during the build process -->

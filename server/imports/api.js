@@ -150,7 +150,7 @@ const flightInfoChanger = () => {
                             callback(err)
                         }
                         // console.log(`flight ${doc.flight} - Emitting data`);
-                        io.sockets.emit('flight info changed', doc);
+                        io.sockets.emit('flight info changed', { what : toChange, doc : doc });
                         callback(null)
                     });
                 }

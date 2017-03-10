@@ -26,7 +26,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications'
       tabsPlacement: 'top',
       mode: 'md',
     })
-    // , SimpleNotificationsModule.forRoot()
+    , SimpleNotificationsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
