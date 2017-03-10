@@ -46,30 +46,16 @@ export class FormPage {
 		if (this.params.data.id) this.mode = "edit";
 
 		// initialize cptx to 0
-		if (typeof this.fourre.lfcCpt1 == 'undefined') {
-			this.fourre.lfcCpt1 = 0;
-		}
-		if (typeof this.fourre.lfcCpt3 == 'undefined') {
-			this.fourre.lfcCpt3 = 0;
-		}
-		if (typeof this.fourre.lfcCpt4 == 'undefined') {
-			this.fourre.lfcCpt4 = 0;
-		}
-		if (typeof this.fourre.lfcCpt5 == 'undefined') {
-			this.fourre.lfcCpt5 = 0;
-		}
-		if (typeof this.fourre.lfcCpt1Poids == 'undefined') {
-			this.fourre.lfcCpt1Poids = 0;
-		}
-		if (typeof this.fourre.lfcCpt3Poids == 'undefined') {
-			this.fourre.lfcCpt3Poids = 0;
-		}
-		if (typeof this.fourre.lfcCpt4Poids == 'undefined') {
-			this.fourre.lfcCpt4Poids = 0;
-		}
-		if (typeof this.fourre.lfcCpt5Poids == 'undefined') {
-			this.fourre.lfcCpt5Poids = 0;
-		}
+    this.fourre.lfcCpt1 = this.fourre.lfcCpt1 || 0;
+    this.fourre.lfcCpt3 = this.fourre.lfcCpt3 || 0;
+    this.fourre.lfcCpt4 = this.fourre.lfcCpt4 || 0;
+    this.fourre.lfcCpt5 = this.fourre.lfcCpt5 || 0;
+ 
+    this.fourre.lfcCpt1Poids = this.fourre.lfcCpt1Poids || 0;
+    this.fourre.lfcCpt3Poids = this.fourre.lfcCpt3Poids || 0;
+    this.fourre.lfcCpt4Poids = this.fourre.lfcCpt4Poids || 0;
+    this.fourre.lfcCpt5Poids = this.fourre.lfcCpt5Poids || 0;
+
 
 		socket
 			.off('flight info changed')
