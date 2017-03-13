@@ -23,6 +23,10 @@ export class FormPage {
 	private timeoutSave: any = null;
 	public currentTimeData = new Object;
 	public lastError: String;
+	private flightChecked: boolean = false;
+	private lfcChecked: boolean = false;
+	private lmcChecked: boolean = false;
+	private irChecked: boolean = false;
 
 	type: any = localStorage.getItem("planeType")
 	process: string = "Flight";
@@ -55,12 +59,25 @@ export class FormPage {
     this.fourre.lfcCpt4Poids = this.fourre.lfcCpt4Poids || 0;
     this.fourre.lfcCpt5Poids = this.fourre.lfcCpt5Poids || 0;
 
+	this.checkFlight();
+	this.checkLFC();
 
-		socket
-			.off('flight info changed')
-			.on('flight info changed', this.flightInfoChanged.bind(this));
+	socket
+		.off('flight info changed')
+		.on('flight info changed', this.flightInfoChanged.bind(this));
 	}
 
+	checkFlight() {
+		if(this.fourre.flight && this.fourre.destination) {
+			this.flightChecked = true;
+		}
+	}
+	checkLFC() {
+		if(this.lfcVerifyValues()) {
+			this.lfcChecked = true;
+		}
+	}
+	
 	onFlightChanged() {
 		// Debouncing
 		this.lastError = '';
@@ -74,6 +91,7 @@ export class FormPage {
 					}
 					this.computeFlightInfo(flight.json()[0]);
 					this.save();
+					this.checkFlight();
 				})
 				.catch(err => {
 					this.lastError = err;
@@ -139,6 +157,7 @@ export class FormPage {
 			this.fourre.lfcCpt5Poids = Math.ceil(this.fourre.lfcCpt5Poids);
 		}
 		this.save();
+		this.checkLFC();
 	}
 
 	private lfcVerifyValues(): boolean {

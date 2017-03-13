@@ -87,13 +87,13 @@
     <!--<div class="border"></div>-->
     <ion-segment-button value="Flight">
       <p>Flight</p>
-           <ion-checkbox  mode="ios" checked="true"></ion-checkbox>
+           <ion-checkbox  mode="ios" [checked]="flightChecked"></ion-checkbox>
     </ion-segment-button>
 
     <ion-segment-button value="LFC">
         <p>LFC</p>
 
-           <ion-checkbox  mode="ios" checked="false"></ion-checkbox>
+           <ion-checkbox  mode="ios" [checked]="lfcChecked"></ion-checkbox>
 
     </ion-segment-button>
 
