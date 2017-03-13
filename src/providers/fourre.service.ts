@@ -48,7 +48,10 @@ export class FourreService {
         .get(serverUrl + "/fourre/today")
         .toPromise()
         .then( (res) => {
-            this.fourres = res.json();
+            this.fourres = res.json().map( fourre =>{
+              fourre.show = true;
+              return fourre;
+            });
             console.log("this.fourres = ",this.fourres)
         })
         .catch( err => {
@@ -76,5 +79,19 @@ export class FourreService {
     return this.http
         .get(serverUrl + "/flightinfo/" + flightNbr)
         .toPromise()
+  }
+
+  hideFourre(fourreId){ // Hides a fourre from the list. The fourre will be deleted a few seconds later, unless the "undo" button is pressed
+      this.fourres = this.fourres.map( fourre => {
+        fourre['show'] = fourre._id !== fourreId;
+        return fourre;
+      })
+  }
+
+   unhideFourre(fourreId){ // Hides a fourre from the list. The fourre will be deleted a few seconds later, unless the "undo" button is pressed
+      this.fourres = this.fourres.map( fourre => {
+        if(fourre._id === fourreId) fourre['show'] = true;
+        return fourre;
+      })
   }
 }

@@ -185,10 +185,7 @@ export class FormPage {
 
 	flightInfoChanged(newInfo) {
 
-		console.log("newInfo.doc.flight = ", newInfo.doc.flight, "this.fourre.flight", this.fourre.flight)
-
 		if (newInfo.doc.flight !== this.fourre.flight) return;
-
 
 		let before = this.fourre[newInfo.what];
 		let after = newInfo.doc[newInfo.what];
@@ -206,7 +203,7 @@ export class FormPage {
 		// });
 		// this.zone.run(() => { })
 		let toast = this.toastCtrl.create({
-			message: `${newInfo.what.toUpperCase()} has changed Before = ${before} - Now = ${after}`,
+			message: `${newInfo.what.toUpperCase()} has changed  - Was = ${before} - Now = ${after}`,
 			duration: 8000,
 			position: 'top',
 			cssClass: 'toastLFC',

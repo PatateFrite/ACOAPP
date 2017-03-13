@@ -45,7 +45,10 @@
     </div>
 
     <ion-list>
-        <ion-item-sliding *ngFor="let fourre of fourreService.fourres" (click)="openFourre(fourre)">
+        <ion-item-sliding
+            *ngFor="let fourre of fourreService.fourres"
+            (click)="openFourre(fourre)"
+            [hidden]="!fourre.show">
           <ion-item>
               {{ fourre.prefix }}{{ fourre.flight ? fourre.flight : "No flight number" }} - {{ fourre.destination }} - {{ fourre.planeType }} - {{ fourre.std }}
           </ion-item>

@@ -91,6 +91,18 @@ page-profil {
     padding: 30px;
   }
 
+  ion-item-sliding:first-child{
+	ion-label{
+		position : relative;
+		&:after{
+			content : "⬅ Swipe to delete";
+			position : absolute;
+			right : 0;
+			color : lightgrey;
+		}
+	}
+  }
+
 }
 
 
