@@ -88,27 +88,29 @@
     <ion-segment-button value="Flight">
       <p>Flight</p>
            <ion-checkbox  mode="ios" [checked]="flightChecked"></ion-checkbox>
+           <img *ngIf="flightChecked" src="assets/img/menubar.svg">
     </ion-segment-button>
 
     <ion-segment-button value="LFC">
         <p>LFC</p>
 
            <ion-checkbox  mode="ios" [checked]="lfcChecked"></ion-checkbox>
-
+           <img *ngIf="lfcChecked" src="assets/img/menubar.svg">
     </ion-segment-button>
 
     <ion-segment-button value="LMC">
         <p>LMC</p>
 
-           <ion-checkbox  mode="ios" checked="false"></ion-checkbox>
+           <ion-checkbox  mode="ios" [checked]="lmcChecked"></ion-checkbox>
+           <img *ngIf="lmcChecked" src="assets/img/menubar.svg">
 
     </ion-segment-button>
 
     <ion-segment-button value="IR">
         <p>IR</p>
 
-           <ion-checkbox mode="ios" checked="false"></ion-checkbox>
-
+           <ion-checkbox mode="ios" [checked]="irChecked"></ion-checkbox>
+           <img *ngIf="irChecked" src="assets/img/menubar.svg">
     </ion-segment-button>
   </ion-segment>
 </div>
